@@ -1,0 +1,827 @@
+/* CSS Variables for Colors */
+:root {
+    --brand-blue: #009BD8;
+    --brand-blue-light-01: #85DEF2;
+    --brand-blue-light-02: #D0EBFF;
+    --brand-blue-light-03: #F0F9FF;
+    --gray-headline: #262626;
+    --gray-paragraph: #575759;
+    --light-gray: #F9F9F9;
+    --white: #FFFFFF;
+}
+
+/* Basic Reset & Base Styles (Mobile First) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-paragraph); /* Default text color */
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--gray-headline); /* Headline color */
+    font-weight: 700; /* Bold */
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2rem; } /* Mobile font size */
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1rem;
+    
+}
+
+a {
+    text-decoration: none;
+    color: var(--brand-blue);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--gray-headline);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Helps with layout issues */
+}
+
+.container {
+    max-width: 1200px; /* Desktop max width */
+    margin: 0 auto;
+    padding: 0 1rem; /* Mobile padding */
+}
+
+/* Buttons - Base Styles (Mobile First) */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem; /* Pill shape */
+    text-align: center;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--brand-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #007bb2; /* Darker blue */
+    color: var(--white);
+    opacity: 0.9;
+}
+
+/* Secondary Button - Mobile First Styling */
+.btn-secondary {
+     background-color: transparent;
+     color: var(--brand-blue);
+     border: 2px solid var(--brand-blue);
+     padding: 0.6rem 1.3rem; /* Adjust padding for border on mobile */
+}
+
+.btn-secondary:hover {
+    background-color: var(--brand-blue-light-03);
+    color: var(--brand-blue);
+    border-color: var(--brand-blue-light-03); /* Match background on hover */
+}
+
+.btn-cta {
+     background-color: var(--white);
+     color: var(--brand-blue);
+     font-size: 1.2rem;
+     padding: 1rem 2rem;
+     display: flex;
+     align-items: center;
+     justify-content: center; /* Center content inside button */
+     gap: 0.5rem;
+     border: 2px solid var(--white); /* Add border for hover effect */
+     width: auto; /* Ensure button doesn't stretch unnecessarily */
+     max-width: 50%; /* Prevent overflow on small screens */
+     margin-left: auto; /* Center the button if it's smaller than container */
+     margin-right: auto;
+}
+.btn-cta i {
+    font-size: 1.5rem;
+}
+
+.btn-cta:hover {
+    background-color: var(--brand-blue-light-03);
+    color: var(--brand-blue);
+    border-color: var(--brand-blue-light-03);
+}
+
+.btn-whatsapp {
+    background-color: #25D366; /* WhatsApp Green */
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content inside button */
+    gap: 0.5rem;
+     border: 2px solid #25D366;
+     width: auto; /* Ensure button doesn't stretch unnecessarily */
+     max-width: 100%; /* Prevent overflow on small screens */
+}
+.btn-whatsapp i {
+     font-size: 1.5rem;
+}
+.btn-whatsapp:hover {
+     background-color: #1EAF54; /* Darker Green */
+     color: var(--white);
+     border-color: #1EAF54;
+}
+
+
+/* Header (Mobile) */
+.site-header {
+    background-color: var(--brand-blue);
+    padding: 1rem 0;
+    position: relative; /* Needed for mobile menu positioning */
+    z-index: 50; /* Ensure header is above other content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content .logo img {
+    height: 80px; /* Adjust logo size */
+    filter: brightness(0) invert(1); /* Make logo white */
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--white);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.desktop-nav {
+    display: none; /* Hidden on mobile */
+}
+
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--brand-blue); /* Full screen blue */
+    color: var(--white);
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    z-index: 1000;
+
+    /* Initial state (hidden) */
+    transform: translateX(100%); /* Start off screen to the right */
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.mobile-menu.is-open {
+    transform: translateX(0); /* Slide in */
+    visibility: visible;
+    opacity: 1;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take full width of container */
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+.mobile-menu .logo img {
+     height: 70px; /* Adjust logo size */
+     filter: brightness(0) invert(1); /* Make logo white */
+}
+
+
+.close-menu {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0; /* Reset padding */
+}
+
+.mobile-menu li {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-menu a {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: var(--brand-blue-light-01);
+}
+
+.mobile-menu .btn-primary {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+     padding: 1rem 2rem;
+}
+
+.mobile-menu .social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.mobile-menu .social-icons a {
+    color: var(--white);
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu .social-icons a:hover {
+     color: var(--brand-blue-light-01);
+}
+
+/* Prevent body scroll when menu is open (requires JS to add/remove class) */
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* Sections */
+section {
+    padding: 4rem 0; /* Default padding for sections */
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to bottom, var(--brand-blue), var(--brand-blue-light-03)); /* Gradient background */
+    color: var(--gray-headline);
+    text-align: center;
+    padding: 6rem 0 4rem 0; /* Adjust padding */
+}
+
+.hero-section .container {
+     display: flex; /* Use flexbox for image/text layout on mobile too */
+     flex-direction: column; /* Stack by default */
+     align-items: center;
+     gap: 3rem;
+}
+
+
+.hero-section h1 {
+    color: var(--white); /* White heading */
+    font-size: 1.5rem; /* Mobile smaller heading */
+    margin-bottom: 0.5rem;
+    font-weight: 400; /* Regular */
+}
+
+.hero-section h2 {
+     color: var(--gray-headline); /* White heading */
+    font-size: 2rem; /* Mobile main heading size */
+    margin-bottom: 1.5rem;
+}
+
+.hero-section p {
+    color: var(--gray-paragraph); /* Slightly transparent white */
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.hero-content {
+    order: 2; /* Put content below image on mobile initially */
+}
+
+.hero-image {
+    order: 1; /* Put image above content on mobile initially */
+    width: 100%; /* Ensure image takes full width */
+    max-width: 400px; /* Limit image size on mobile */
+    margin: 0 auto; /* Center image */
+}
+
+
+/* Stats Section */
+.stats-section {
+     background-color: var(--white); /* Match the asset */
+     padding: 2rem 0; /* Smaller padding */
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--gray-paragraph);
+}
+
+
+/* Services Section */
+.services-section {
+    background-color: var(--light-gray); /* Light gray background */
+    text-align: center;
+}
+
+.services-section h3 {
+    margin-bottom: 3rem;
+}
+
+.services-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* Grid layout for mobile - 1 column */
+    grid-template-columns: 1fr;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.service-card .service-icon {
+    font-size: 2rem;
+    color: var(--brand-blue);
+    margin-bottom: 1rem;
+}
+
+.service-card h4 {
+     margin-bottom: 0.5rem;
+     font-size: 1.1rem; /* Slightly smaller */
+}
+.service-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: var(--brand-blue-light-03); /* Light blue background */
+    text-align: center;
+}
+
+.testimonials-section h3 {
+     margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    gap: 2rem;
+     /* Stack on mobile */
+    grid-template-columns: 1fr;
+}
+
+.testimonial-card {
+     background-color: var(--white);
+     padding: 2rem;
+     border-radius: 8px;
+     text-align: left;
+     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+     position: relative; /* For quote icon positioning */
+     font-style: italic; /* Match asset */
+     color: var(--gray-paragraph);
+}
+
+.testimonial-card .quote-icon {
+    font-size: 2.5rem;
+    color: var(--brand-blue-light-01);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    opacity: 0.5;
+}
+
+.testimonial-card p {
+     margin-top: 1.5rem; /* Space for icon */
+     margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    display: block;
+    font-weight: 700;
+    font-style: normal; /* Remove italic */
+    color: var(--gray-headline);
+    text-align: right;
+}
+
+
+/* Partners Section */
+.partners-section {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.partners-section h3 {
+     margin-bottom: 3rem;
+}
+
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Space between logos */
+}
+
+.partners-logos img {
+    height: 40px; /* Adjust size */
+    width: auto;
+    filter: grayscale(100%); /* Make logos grayscale */
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partners-logos img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+
+/* CTA Banner Section */
+.cta-banner-section {
+    background-color: var(--brand-blue); /* Blue background */
+    color: var(--white);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.cta-banner-section h2 {
+    color: var(--white);
+    font-size: 2rem; /* Mobile size */
+    margin-bottom: 2rem;
+}
+
+
+/* About Section */
+.about-section {
+    background-color: var(--light-gray); /* Light gray background */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 2rem;
+}
+
+.about-text h3 {
+     margin-bottom: 0.5rem;
+}
+
+.about-text h4 {
+     margin-bottom: 1.5rem;
+     color: var(--gray-headline);
+}
+
+.about-text p {
+    margin-bottom: 2rem;
+}
+
+.about-image img {
+    border-radius: 8px;
+    width: 100%; /* Full width on mobile */
+    max-width: 500px; /* Limit image size on mobile */
+     margin: 0 auto; /* Center image */
+}
+
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--white);
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 2rem;
+}
+
+.contact-image img {
+     border-radius: 8px;
+     width: 100%; /* Full width on mobile */
+     max-width: 500px; /* Limit image size on mobile */
+     margin: 0 auto; /* Center image */
+}
+
+.contact-form h3 {
+     margin-bottom: 1rem;
+}
+
+.contact-form p {
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #009bdb; /* Dark background */
+    color: var(--white);
+    padding: 3rem 0;
+    text-align: center;
+    position: relative; /* For scroll-top button */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-logo img {
+     height: 80px; /* Adjust logo size */
+     filter: brightness(0) invert(1); /* Make logo white */
+}
+
+.copyright {
+    font-size: 1rem;
+     color: var(--light-gray);
+}
+
+.site-footer .social-icons {
+     display: flex;
+     gap: 1rem;
+}
+
+.site-footer .social-icons a {
+     color: var(--white);
+     font-size: 1.5rem;
+      transition: color 0.3s ease;
+}
+
+.site-footer .social-icons a:hover {
+    color: var(--brand-blue-light-01);
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--brand-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    opacity: 0; /* Initially hidden */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- Desktop Styles (using Media Query) --- */
+@media (min-width: 768px) { /* Adjust breakpoint as needed */
+
+    /* Adjust basic font sizes for desktop */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+
+    .container {
+        padding: 0 2rem; /* Desktop padding */
+    }
+
+    section {
+        padding: 6rem 0; /* More padding on desktop */
+    }
+
+    /* Header (Desktop) */
+    .site-header .header-content {
+        justify-content: space-between; /* Space out logo, nav, button */
+        align-items: center; /* Vertically align */
+    }
+
+    .menu-toggle {
+        display: none; /* Hide toggle on desktop */
+    }
+
+    .desktop-nav {
+        display: flex; /* Show desktop nav */
+        align-items: center;
+        gap: 2rem; /* Space between nav and button */
+    }
+
+    .desktop-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem; /* Space between links */
+        margin: 0;
+        padding: 0;
+    }
+
+    .desktop-nav a {
+        color: var(--white);
+        font-weight: 400; /* Regular */
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+    }
+
+    .desktop-nav a:hover {
+        color: var(--brand-blue-light-01);
+    }
+
+    /* Secondary Button - Desktop Styling Adjustment */
+    /* Apply more padding to the secondary button on desktop */
+    .btn-secondary {
+         padding: 0.7rem 1.5rem; /* Increased padding for better dimension */
+         /* Inherits other styles like color, border from base */
+     }
+
+     /* Header specific secondary button color adjustment for desktop */
+     .desktop-nav .btn-secondary {
+          color: var(--white);
+          border-color: var(--white);
+     }
+      .desktop-nav .btn-secondary:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          color: var(--white);
+          border-color: rgba(255, 255, 255, 0.1);
+      }
+
+    /* Hero Section (Desktop) */
+    .hero-section .container {
+        flex-direction: row; /* Arrange horizontally */
+        gap: 4rem; /* Space between content and image */
+    }
+
+     .hero-content {
+         flex: 1; /* Take up available space */
+         order: 1; /* Content first on desktop */
+         text-align: left; /* Align text left */
+     }
+
+     .hero-image {
+         flex: 1;
+         order: 2; /* Image second on desktop */
+         margin: 0; /* Remove mobile margin */
+         max-width: none; /* Remove max-width constraint */
+     }
+
+    .hero-section h1 {
+        font-size: 1.75rem; /* Adjust desktop size */
+        text-align: left;
+    }
+    .hero-section h2 {
+        font-size: 2.5rem; /* Adjust desktop size */
+        text-align: left;
+    }
+     .hero-section p {
+         margin: 0 0 2rem 0; /* Adjust margin */
+         max-width: none; /* Remove max-width */
+          color: var(--gray-headline); /* Use gray text color on desktop based on asset */
+     }
+
+
+    /* Stats Section (Desktop) */
+    .stats-grid {
+        flex-direction: row; /* Arrange horizontally */
+        justify-content: space-around; /* Space out items */
+        gap: 1rem; /* Reduce gap */
+    }
+
+
+    /* Services Section (Desktop) */
+     .services-grid {
+        /* Grid layout for desktop - 3 columns (or adjust as needed) */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+        gap: 2rem;
+     }
+
+    /* Testimonials Section (Desktop) */
+     .testimonials-grid {
+        /* Grid layout for desktop - 2 columns */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+     }
+
+
+    /* CTA Banner Section (Desktop) */
+    .cta-banner-section h2 {
+         font-size: 2.5rem; /* Desktop size */
+         max-width: 800px;
+         margin-left: auto;
+         margin-right: auto;
+    }
+
+    /* About Section (Desktop) */
+    .about-content {
+         flex-direction: row; /* Arrange horizontally */
+         align-items: center;
+         gap: 4rem; /* Increase gap for desktop */
+    }
+
+    .about-text {
+         flex: 1; /* Take up space */
+         padding-right: 2rem; /* Add some space to the right of text */
+    }
+
+     .about-image {
+         flex: 1;
+         order: 2; /* Place image on the right */
+         margin: 0; /* Remove mobile margin */
+     }
+     .about-image img {
+         max-width: 500px; /* Example max-width for image */
+         margin: 0; /* Remove centering */
+     }
+
+
+     /* Contact Section (Desktop) */
+     .contact-content {
+         flex-direction: row; /* Arrange horizontally */
+         align-items: center;
+         gap: 4rem; /* Increase gap for desktop */
+     }
+    .contact-image {
+         flex: 1;
+         margin: 0; /* Remove mobile margin */
+    }
+     .contact-image img {
+         max-width: 500px; /* Example max-width for image */
+         margin: 0; /* Remove centering */
+     }
+
+     .contact-form {
+         flex: 1;
+         padding-left: 2rem; /* Add space to the left of form */
+     }
+
+
+    /* Footer (Desktop) */
+    .site-footer .footer-content {
+        flex-direction: row; /* Arrange horizontally */
+        justify-content: space-between;
+        align-items: center;
+         gap: 0; /* Remove gap when horizontal */
+    }
+
+} /* End of Media Query */
