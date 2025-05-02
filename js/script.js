@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
     if (closeMenuButton) closeMenuButton.addEventListener('click', toggleMenu);
 
-    // Fechar menu quando um link mobile menu é clicado (listener movido para o smooth scroll global)
-
 
     // --- Scroll to Top Button ---
     const toggleScrollTopButton = () => {
@@ -78,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para verificar se a seção de estatísticas está visível
     const checkStatsSection = () => {
-        if (statsAnimated || !statsSection) return; // Sai se já animou ou seção não existe
+        if (statsAnimated || !statsSection || statNumbers.length === 0) return; // Sai se já animou, seção não existe ou não há números
 
         const sectionRect = statsSection.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
@@ -105,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const portfolioProjects = [
         {
             id: 0, // Mapeia para data-project-id="0" no HTML
-            title: "Site Cris Diniz Depilação", // SUBSTITUIR
+            title: "Cris Diniz Depilação", // SUBSTITUIR
             image: "img/portifolio1.png", // SUBSTITUIR Pela imagem real do modal (pode ser diferente da do carrossel)
             technologies: ["HTML", "CSS", "JavaScript", "Responsivo"], // SUBSTITUIR
             siteUrl: "https://crisdinizdepilacao-eta.vercel.app/" // SUBSTITUIR Pela URL real, use '#' se não tiver URL
@@ -135,61 +133,63 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
 
-    // --- Portfolio Carousel ---
+    // --- Portfolio Carousel & Modal Setup ---
     const portfolioSection = document.querySelector('.portfolio-section');
     const carouselTrack = portfolioSection ? portfolioSection.querySelector('.carousel-track') : null;
-    let portfolioItems = portfolioSection ? portfolioSection.querySelectorAll('.portfolio-item') : []; // Pode ser populado via JS depois
+    let portfolioItems = portfolioSection ? portfolioSection.querySelectorAll('.portfolio-item') : [];
     const prevButton = portfolioSection ? portfolioSection.querySelector('.carousel-control.prev') : null;
     const nextButton = portfolioSection ? portfolioSection.querySelector('.carousel-control.next') : null;
 
-    // Verifica se os elementos do carrossel existem antes de tentar usá-los
-    if (carouselTrack && portfolioItems.length > 0 && prevButton && nextButton) {
-        let currentIndex = 0; // Índice visual atual (aproximado)
-        const totalItems = portfolioItems.length;
-        let itemsPerPage = 1; // Default for mobile
+    const modalOverlay = document.querySelector('.portfolio-modal-overlay');
+    const modalContent = modalOverlay ? modalOverlay.querySelector('.portfolio-modal-content') : null;
+    const modalCloseButton = modalOverlay ? modalOverlay.querySelector('.modal-close-btn') : null;
+    const modalProjectImage = modalOverlay ? modalOverlay.querySelector('.modal-project-image') : null;
+    const modalProjectTitle = modalOverlay ? modalOverlay.querySelector('.modal-project-title') : null;
+    const modalTechList = modalOverlay ? modalOverlay.querySelector('.modal-tech-list') : null;
+    const modalVisitSiteButton = modalOverlay ? modalOverlay.querySelector('.modal-visit-site-btn') : null;
+
+    // Variável para controlar se a funcionalidade do carrossel está ativa
+    let isCarouselActive = false;
 
 
-        // Função para obter a largura exata de um item incluindo o gap
-        const getSlideStep = () => {
-             if (portfolioItems.length === 0) return 0;
+    // Verifica se os elementos essenciais para o Portfólio (carrossel ou apenas itens clicáveis) existem
+    if (portfolioSection && portfolioItems.length > 0 && modalOverlay && modalContent && modalCloseButton && modalProjectTitle && modalTechList && modalVisitSiteButton) {
 
-             // Recalcula portfolioItems caso o DOM mude ou no resize
-             portfolioItems = portfolioSection.querySelectorAll('.portfolio-item');
-             if (portfolioItems.length === 0) return 0;
+        // --- Carousel Functionality (Only if track and buttons exist) ---
+        if (carouselTrack && prevButton && nextButton) {
+             isCarouselActive = true; // Ativa a flag do carrossel
 
+             // Função para obter a largura exata de um item incluindo o gap
+            const getSlideStep = () => {
+                 // Recalcula portfolioItems caso o DOM mude ou no resize
+                portfolioItems = portfolioSection.querySelectorAll('.portfolio-item');
+                if (portfolioItems.length === 0) return 0;
 
-            // Pega a largura renderizada do primeiro item
-            const itemWidth = portfolioItems[0].getBoundingClientRect().width;
-            const trackStyle = window.getComputedStyle(carouselTrack);
-             // Pega o gap calculado pelo CSS
-            const gap = parseFloat(trackStyle.getPropertyValue('gap')) || 0;
+                // Pega a largura renderizada do primeiro item
+                const itemWidth = portfolioItems[0].getBoundingClientRect().width;
+                const trackStyle = window.getComputedStyle(carouselTrack);
+                 // Pega o gap calculado pelo CSS
+                const gap = parseFloat(trackStyle.getPropertyValue('gap')) || 0;
 
-            // Se houver scroll-snap, a rolagem para no início de cada item, então o "passo" é a largura do item + gap
-            // Se não, seria apenas a largura visível ou uma largura fixa.
-            // Com scroll-snap-align: start, o passo é itemWidth + gap.
-            return itemWidth + gap;
-        };
+                // O passo para scroll-snap-align: center pode ser a largura do item + gap
+                return itemWidth + gap;
+            };
 
-        // Função para atualizar o estado dos botões Prev/Next
-        const updateCarouselControls = () => {
-             if (!carouselTrack || !prevButton || !nextButton) return; // Sai se elementos não existem
+            // Função para atualizar o estado dos botões Prev/Next
+            const updateCarouselControls = () => {
+                 if (!carouselTrack || !prevButton || !nextButton) return;
 
-            // Calcula a posição máxima de scroll
-            const maxScrollLeft = carouselTrack.scrollWidth - carouselTrack.clientWidth;
+                // Calcula a posição máxima de scroll
+                const maxScrollLeft = carouselTrack.scrollWidth - carouselTrack.clientWidth;
 
-             // Desabilita o Anterior se estiver no início ou próximo dele (margem de 1px)
-            prevButton.disabled = carouselTrack.scrollLeft <= 1;
+                 // Desabilita o Anterior se estiver no início ou próximo dele (margem de 1px)
+                prevButton.disabled = carouselTrack.scrollLeft <= 1;
 
-             // Desabilita o Próximo se já rolou até o final ou próximo dele (margem de 1px)
-            nextButton.disabled = carouselTrack.scrollLeft >= maxScrollLeft - 1;
+                 // Desabilita o Próximo se já rolou até o final ou próximo dele (margem de 1px)
+                nextButton.disabled = carouselTrack.scrollLeft >= maxScrollLeft - 1;
+            };
 
-             // Opcional: Atualizar o currentIndex visual (se necessário para outra lógica)
-             // currentIndex = Math.round(carouselTrack.scrollLeft / getSlideStep());
-             // currentIndex = Math.max(0, Math.min(currentIndex, totalItems - itemsPerPage));
-        };
-
-        // Event Listeners para os botões
-        if (nextButton) {
+            // Event Listeners para os botões
             nextButton.addEventListener('click', () => {
                  const slideStep = getSlideStep();
                  if (slideStep > 0) {
@@ -204,9 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      // A atualização dos controles é feita no listener de scroll do track
                  }
             });
-        }
 
-        if (prevButton) {
             prevButton.addEventListener('click', () => {
                  const slideStep = getSlideStep();
                  if (slideStep > 0) {
@@ -221,220 +219,168 @@ document.addEventListener('DOMContentLoaded', () => {
                      // A atualização dos controles é feita no listener de scroll do track
                  }
             });
-        }
 
-        // Adiciona listener para scroll nativo do track (se o usuário arrastar ou usar wheel)
-        // Atualiza os controles sempre que o carrossel for rolado
-        if (carouselTrack) {
+            // Adiciona listener para scroll nativo do track (se o usuário arrastar ou usar wheel)
+            // Atualiza os controles sempre que o carrossel for rolado
             carouselTrack.addEventListener('scroll', updateCarouselControls);
-        }
 
 
-        // Atualiza controles e posição no carregamento e resize
-        const initializeCarousel = () => {
-             // Recarrega os itens do DOM caso tenham sido adicionados dinamicamente
-             portfolioItems = portfolioSection.querySelectorAll('.portfolio-item');
-             // Garante que o track existe antes de tentar scrollar
-             if (carouselTrack) {
-                 // Usa scrollTo instantâneo para ir para o início (0) no resize
-                 carouselTrack.scrollTo({
-                      left: 0,
-                      behavior: 'instant'
-                 });
-             }
-             // Atualiza botões após o reset de scroll
-             updateCarouselControls();
-        }
-
-        window.addEventListener('resize', initializeCarousel);
-
-         // Inicializa no carregamento
-         initializeCarousel();
-
-         // --- Modal Functionality (Adicionado aqui, dentro da verificação se a seção portfolio existe) ---
-         const modalOverlay = document.querySelector('.portfolio-modal-overlay');
-         const modalContent = modalOverlay ? modalOverlay.querySelector('.portfolio-modal-content') : null;
-         const modalCloseButton = modalOverlay ? modalOverlay.querySelector('.modal-close-btn') : null;
-         const modalProjectImage = modalOverlay ? modalOverlay.querySelector('.modal-project-image') : null; // Opcional
-         const modalProjectTitle = modalOverlay ? modalOverlay.querySelector('.modal-project-title') : null;
-         const modalTechList = modalOverlay ? modalOverlay.querySelector('.modal-tech-list') : null;
-         const modalVisitSiteButton = modalOverlay ? modalOverlay.querySelector('.modal-visit-site-btn') : null;
-
-         // Verifica se os elementos do modal existem antes de adicionar listeners
-        if (modalOverlay && modalContent && modalCloseButton && modalProjectTitle && modalTechList && modalVisitSiteButton) {
-
-            const openModal = (projectId) => {
-                 const project = portfolioProjects.find(p => p.id === projectId);
-
-                 if (!project) {
-                     console.error("Project not found with ID:", projectId);
-                     return;
-                 }
-
-                 // Preenche o modal com os dados do projeto
-                 if (modalProjectImage) { // Se a imagem no modal for usada
-                     modalProjectImage.src = project.image;
-                     modalProjectImage.alt = `Imagem do projeto ${project.title}`;
-                     modalProjectImage.style.display = project.image ? 'block' : 'none'; // Oculta se não houver imagem
-                 }
-                 modalProjectTitle.textContent = project.title;
-
-                 // Limpa a lista de tecnologias existente
-                 modalTechList.innerHTML = '';
-                 // Adiciona as novas tecnologias
-                 if (project.technologies && project.technologies.length > 0) {
-                     project.technologies.forEach(tech => {
-                         const li = document.createElement('li');
-                         li.textContent = tech;
-                         modalTechList.appendChild(li);
+            // Atualiza controles e posição no carregamento e resize
+            const initializeCarousel = () => {
+                 // Recarrega os itens do DOM caso tenham sido adicionados dinamicamente
+                 portfolioItems = portfolioSection.querySelectorAll('.portfolio-item');
+                 // Garante que o track existe antes de tentar scrollar
+                 if (carouselTrack) {
+                     // Usa scrollTo instantâneo para ir para o início (0) no resize
+                     carouselTrack.scrollTo({
+                          left: 0,
+                          behavior: 'instant'
                      });
-                     // Mostra o parágrafo "Tecnologias Utilizadas:"
-                      modalTechList.previousElementSibling.style.display = 'block';
-
-                 } else {
-                      // Oculta o parágrafo "Tecnologias Utilizadas:" e a lista se não houver techs
-                      modalTechList.previousElementSibling.style.display = 'none';
-                      modalTechList.style.display = 'none'; // Oculta a lista UL
                  }
+                 // Atualiza botões após o reset de scroll
+                 updateCarouselControls();
+            }
 
+            window.addEventListener('resize', initializeCarousel);
 
-                 // Configura o link do botão "Visitar Site"
-                 modalVisitSiteButton.href = project.siteUrl || '#'; // Usa '#' se for nulo/vazio
-                 // Garante que abre em nova aba
-                 modalVisitSiteButton.target = "_blank";
-                 // Desabilita o botão se não houver URL válida
-                 if (!project.siteUrl || project.siteUrl === '#') {
-                     modalVisitSiteButton.style.display = 'none'; // Oculta
-                 } else {
-                     modalVisitSiteButton.style.display = 'inline-flex'; // Mostra (usando flex para o ícone)
-                 }
-
-
-                 // Exibe o modal
-                 modalOverlay.classList.add('is-visible');
-                 body.classList.add('no-scroll'); // Impede scroll do body
-            };
-
-            const closeModal = () => {
-                 modalOverlay.classList.remove('is-visible');
-                 body.classList.remove('no-scroll'); // Restaura scroll do body
-
-                  // Opcional: Limpar o conteúdo do modal ao fechar
-                  if (modalProjectImage) modalProjectImage.src = '';
-                  modalProjectTitle.textContent = '';
-                  modalTechList.innerHTML = '';
-                  if (modalTechList.previousElementSibling) modalTechList.previousElementSibling.style.display = 'none';
-                  modalTechList.style.display = 'none';
-                  modalVisitSiteButton.href = '#';
-                  modalVisitSiteButton.style.display = 'none';
-            };
-
-            // Adiciona listeners aos itens do portfólio para abrir o modal
-             // Isso deve ser feito APÓS garantir que portfolioItems está populado
-             portfolioItems.forEach(item => {
-                 item.addEventListener('click', () => {
-                     const projectId = parseInt(item.dataset.projectId, 10); // Pega o ID do data-attribute
-                     // Verifica se o ID é um número válido antes de abrir
-                     if (!isNaN(projectId)) {
-                         openModal(projectId);
-                     } else {
-                          console.error("Invalid project ID on element:", item);
-                     }
-                 });
-             });
-
-
-            // Adiciona listeners para fechar o modal
-            modalCloseButton.addEventListener('click', closeModal);
-
-            // Fecha o modal clicando no overlay (mas não no conteúdo do modal)
-            modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) { // Verifica se o clique foi diretamente no overlay
-                    closeModal();
-                }
-            });
-
-            // Opcional: Fechar modal com a tecla ESC
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modalOverlay.classList.contains('is-visible')) {
-                    closeModal();
-                }
-            });
+             // Inicializa no carregamento
+             initializeCarousel();
 
         } else {
-             console.warn("Elementos do Modal não encontrados. Funcionalidade do modal não será ativada.");
-              // Esconde o container do carrossel e muda o texto se a seção portfolio existe mas não tem itens ou modal
-             if(portfolioSection) {
-                  const carouselContainer = portfolioSection.querySelector('.carousel-container');
-                  if(carouselContainer) carouselContainer.style.display = 'none';
-                   portfolioSection.querySelector('h3').textContent = "Portfólio em breve..."; // Ou outra mensagem
-                   if(portfolioSection.querySelector('p')) portfolioSection.querySelector('p').style.display = 'none';
+             // Oculta os controles do carrossel se eles não forem encontrados
+             if (portfolioSection) {
+                  const controlsContainer = portfolioSection.querySelector('.carousel-controls');
+                  if (controlsContainer) {
+                      controlsContainer.style.display = 'none';
+                  }
              }
+             console.warn("Elementos do Carrossel do Portfólio (track/buttons) não encontrados. Apenas a abertura do modal funcionará ao clicar nos itens.");
         }
 
+
+         // --- Modal Functionality ---
+        const openModal = (projectId) => {
+             const project = portfolioProjects.find(p => p.id === projectId);
+
+             if (!project) {
+                 console.error("Project not found with ID:", projectId);
+                 return;
+             }
+
+             // Preenche o modal com os dados do projeto
+             if (modalProjectImage) { // Se a imagem no modal for usada
+                 modalProjectImage.src = project.image;
+                 modalProjectImage.alt = `Imagem do projeto ${project.title}`;
+                 modalProjectImage.style.display = project.image ? 'block' : 'none'; // Oculta se não houver imagem
+             }
+             modalProjectTitle.textContent = project.title;
+
+             // Limpa a lista de tecnologias existente
+             modalTechList.innerHTML = '';
+             // Adiciona as novas tecnologias
+             const techParagraph = modalTechList.previousElementSibling; // O parágrafo "Tecnologias Utilizadas:"
+             if (project.technologies && project.technologies.length > 0) {
+                 project.technologies.forEach(tech => {
+                     const li = document.createElement('li');
+                     li.textContent = tech;
+                     modalTechList.appendChild(li);
+                 });
+                 // Mostra o parágrafo e a lista de tecnologias
+                  techParagraph.style.display = 'block';
+                  modalTechList.style.display = 'flex'; // Usa flex para o layout pill
+             } else {
+                  // Oculta o parágrafo e a lista se não houver techs
+                  techParagraph.style.display = 'none';
+                  modalTechList.style.display = 'none'; // Oculta a lista UL
+             }
+
+
+             // Configura o link do botão "Visitar Site"
+             modalVisitSiteButton.href = project.siteUrl || '#'; // Usa '#' se for nulo/vazio
+             // Garante que abre em nova aba
+             modalVisitSiteButton.target = "_blank";
+             // Desabilita o botão se não houver URL válida
+             if (!project.siteUrl || project.siteUrl === '#') {
+                 modalVisitSiteButton.style.display = 'none'; // Oculta
+             } else {
+                 modalVisitSiteButton.style.display = 'inline-flex'; // Mostra (usando flex para o ícone)
+             }
+
+
+             // Exibe o modal
+             modalOverlay.classList.add('is-visible');
+             body.classList.add('no-scroll'); // Impede scroll do body
+        };
+
+        const closeModal = () => {
+             modalOverlay.classList.remove('is-visible');
+             body.classList.remove('no-scroll'); // Restaura scroll do body
+
+              // Opcional: Limpar o conteúdo do modal ao fechar para evitar flashes de conteúdo antigo
+              if (modalProjectImage) modalProjectImage.src = '';
+              modalProjectTitle.textContent = '';
+              modalTechList.innerHTML = '';
+               const techParagraph = modalTechList.previousElementSibling;
+               if (techParagraph) techParagraph.style.display = 'none';
+               modalTechList.style.display = 'none';
+              modalVisitSiteButton.href = '#';
+               modalVisitSiteButton.style.display = 'none';
+        };
+
+        // Adiciona listeners aos itens do portfólio para abrir o modal
+         // Isso deve ser feito APÓS garantir que portfolioItems está populado
+         portfolioItems.forEach(item => {
+             item.addEventListener('click', () => {
+                 const projectId = parseInt(item.dataset.projectId, 10); // Pega o ID do data-attribute
+                 // Verifica se o ID é um número válido antes de abrir
+                 if (!isNaN(projectId)) {
+                     openModal(projectId);
+                 } else {
+                      console.error("Invalid project ID on element:", item);
+                 }
+             });
+         });
+
+
+        // Adiciona listeners para fechar o modal
+        modalCloseButton.addEventListener('click', closeModal);
+
+        // Fecha o modal clicando no overlay (mas não no conteúdo do modal)
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) { // Verifica se o clique foi diretamente no overlay
+                closeModal();
+            }
+        });
+
+        // Opcional: Fechar modal com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('is-visible')) {
+                closeModal();
+            }
+        });
 
     } else {
-        // Se a seção portfolio, carrossel ou controles não existirem
-         console.warn("Elementos do Carrossel do Portfólio não encontrados ou não há itens. Funcionalidade do carrossel não será ativada.");
-        // Oculta o container de botões se ele existir
-        if (portfolioSection) {
-             const controlsContainer = portfolioSection.querySelector('.carousel-controls');
-             if (controlsContainer) {
-                 controlsContainer.style.display = 'none';
-             }
-             // Adiciona mensagem se não houver itens do portfólio
-             if(portfolioItems.length === 0) {
-                  const carouselContainer = portfolioSection.querySelector('.carousel-container');
-                  if(carouselContainer) carouselContainer.style.display = 'none';
-                  portfolioSection.querySelector('h3').textContent = "Portfólio em breve..."; // Ou outra mensagem
-                  if(portfolioSection.querySelector('p')) portfolioSection.querySelector('p').style.display = 'none';
-             }
-        }
-         // Continua verificando se o modal existe independentemente do carrossel
-         const modalOverlay = document.querySelector('.portfolio-modal-overlay');
-         const modalContent = modalOverlay ? modalOverlay.querySelector('.portfolio-modal-content') : null;
-         const modalCloseButton = modalOverlay ? modalOverlay.querySelector('.modal-close-btn') : null;
-         const modalProjectImage = modalOverlay ? modalOverlay.querySelector('.modal-project-image') : null; // Opcional
-         const modalProjectTitle = modalOverlay ? modalOverlay.querySelector('.modal-project-title') : null;
-         const modalTechList = modalOverlay ? modalOverlay.querySelector('.modal-tech-list') : null;
-         const modalVisitSiteButton = modalOverlay ? modalOverlay.querySelector('.modal-visit-site-btn') : null;
+         // Este bloco é executado se a seção portfolio NÃO existe OU se não há itens OU se os elementos do modal não existem
+         console.warn("Seção Portfólio, itens do portfólio ou elementos do Modal não encontrados. Funcionalidade de Portfólio/Modal não será ativada.");
 
-         // Verifica se os elementos do modal existem (redundante, mas seguro)
-        if (modalOverlay && modalContent && modalCloseButton && modalProjectTitle && modalTechList && modalVisitSiteButton) {
+         // Oculta o container do carrossel e muda o texto se a seção portfolio existe mas não tem itens ou elementos de modal
+         if(portfolioSection) {
+              const carouselContainer = portfolioSection.querySelector('.carousel-container');
+              if(carouselContainer) carouselContainer.style.display = 'none';
+              // Oculta os controles também
+              const controlsContainer = portfolioSection.querySelector('.carousel-controls');
+              if (controlsContainer) {
+                  controlsContainer.style.display = 'none';
+              }
 
-            // Define as funções closeModal e openModal (simplificada se não houver itens clicáveis)
-             const closeModal = () => {
-                 modalOverlay.classList.remove('is-visible');
-                 body.classList.remove('no-scroll');
-                  // Opcional: Limpar o conteúdo do modal ao fechar
-                  if (modalProjectImage) modalProjectImage.src = '';
-                  modalProjectTitle.textContent = '';
-                  modalTechList.innerHTML = '';
-                   if (modalTechList.previousElementSibling) modalTechList.previousElementSibling.style.display = 'none';
-                   modalTechList.style.display = 'none';
-                  modalVisitSiteButton.href = '#';
-                   modalVisitSiteButton.style.display = 'none';
-            };
+               portfolioSection.querySelector('h3').textContent = "Portfólio em breve..."; // Ou outra mensagem
+               if(portfolioSection.querySelector('p')) portfolioSection.querySelector('p').style.display = 'none';
+         }
 
-            // Adiciona listeners para fechar o modal, mesmo que não haja itens para abri-lo
-            modalCloseButton.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) {
-                    closeModal();
-                }
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modalOverlay.classList.contains('is-visible')) {
-                    closeModal();
-                }
-            });
-
-             console.warn("Funcionalidade de Abertura do Modal não será ativada pois não há itens de portfólio clicáveis.");
-
-        } else {
-             console.warn("Elementos do Modal não encontrados. Funcionalidade do modal não será ativada (verificação secundária).");
-        }
-
+         // Define uma função closeModal básica caso os elementos do modal não existam mas a função seja chamada
+         window.closePortfolioModal = () => {
+             console.warn("closePortfolioModal called, but modal elements not found.");
+         };
     }
 
 
@@ -442,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // (This overrides the browser's default jump behavior for # links)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         // Verifica se o link NÃO é um link do modal (que não deve acionar smooth scroll)
-        // nem um link dentro de um item de carrossel clicável
+        // nem um link dentro de um item de carrossel clicável (o clique no item abre o modal)
         if (!anchor.closest('.portfolio-modal-content') && !anchor.closest('.portfolio-item')) {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

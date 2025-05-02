@@ -437,7 +437,6 @@ section {
 .carousel-track {
     display: flex;
     gap: 20px; /* Espaço entre os itens */
-    /* Removido transform transition aqui para usar scroll-behavior */
     overflow-x: auto; /* Permite rolagem nativa */
     scroll-snap-type: x mandatory; /* Garante que os itens parem no lugar */
     -webkit-overflow-scrolling: touch; /* Melhora o scroll em iOS */
@@ -467,7 +466,7 @@ section {
     align-items: center;
     text-align: left; /* Alinha o texto dentro do item */
     margin: 0 auto; /* Centraliza o item no mobile se for menor que a largura */
-    scroll-snap-align: start; /* Alinha o início do item no scroll-snap */
+    scroll-snap-align: center; /* Alinha o centro do item no scroll-snap para mobile */
 }
 
 .portfolio-item:hover {
@@ -881,7 +880,7 @@ section {
 
 
 /* --- Desktop Styles (using Media Query) --- */
-@media (min-width: 768px) { /* Adjust breakpoint as needed */
+@media (min-width: 768px) { /* Ajuste breakpoint conforme necessário */
 
     /* Adjust basic font sizes for desktop */
     h1 { font-size: 2.5rem; }
@@ -1004,6 +1003,7 @@ section {
         width: calc(33.333% - 14px); /* Ajuste a largura para caber 3 itens com gap de 20px */
         max-width: none; /* Remove a largura máxima fixa */
         margin: 0; /* Remove o margin auto */
+        scroll-snap-align: start; /* Alinha ao início no desktop */
     }
 
     .carousel-controls {
