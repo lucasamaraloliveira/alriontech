@@ -37,7 +37,7 @@ h4 { font-size: 1.25rem; }
 
 p {
     margin-bottom: 1rem;
-    
+
 }
 
 a {
@@ -411,6 +411,249 @@ section {
     margin-bottom: 0;
 }
 
+
+/* --- SEÇÃO: Portfólio --- */
+.portfolio-section {
+    background-color: var(--white); /* Ou outra cor que combine */
+    text-align: center;
+}
+
+.portfolio-section h3 {
+    margin-bottom: 1rem;
+}
+
+.portfolio-section p {
+    margin-bottom: 3rem;
+    color: var(--gray-paragraph);
+}
+
+.carousel-container {
+    overflow: hidden; /* Esconde os itens fora da área visível */
+    width: 100%;
+    position: relative; /* Para posicionar controles */
+    padding-bottom: 3rem; /* Espaço para os controles */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px; /* Espaço entre os itens */
+    /* Removido transform transition aqui para usar scroll-behavior */
+    overflow-x: auto; /* Permite rolagem nativa */
+    scroll-snap-type: x mandatory; /* Garante que os itens parem no lugar */
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em iOS */
+    scrollbar-width: none; /* Oculta a scrollbar para Firefox */
+    -ms-overflow-style: none;  /* Oculta a scrollbar para Internet Explorer 10+ */
+    padding-bottom: 10px; /* Espaço para sombra se houver */
+}
+
+/* Oculta a scrollbar para Chrome, Safari e Opera */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+.portfolio-item {
+    flex: 0 0 auto; /* Não cresce, não diminui, mantém largura */
+    width: 80%; /* Ajuste a largura do item no mobile */
+    max-width: 350px; /* Largura máxima do item */
+    background-color: var(--light-gray); /* Fundo do card */
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem respeite o border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Indica que é clicável */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* Alinha o texto dentro do item */
+    margin: 0 auto; /* Centraliza o item no mobile se for menor que a largura */
+    scroll-snap-align: start; /* Alinha o início do item no scroll-snap */
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item img {
+    width: 100%; /* Imagem ocupa toda a largura do item */
+    height: 200px; /* Altura fixa para imagens (ajuste conforme necessário) */
+    object-fit: cover; /* Cobre a área sem distorcer */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05); /* Zoom sutil na imagem */
+}
+
+
+.portfolio-item .item-text {
+    padding: 1rem;
+    width: 100%; /* Garante que o padding funcione corretamente */
+}
+
+.portfolio-item .item-text h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--gray-headline);
+}
+
+.portfolio-item .item-text p {
+    font-size: 0.9rem;
+    color: var(--gray-paragraph);
+    margin-bottom: 0; /* Remove margem do último parágrafo */
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 0; /* Posição abaixo do carrossel */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px; /* Espaço entre os botões */
+    width: 100%;
+    max-width: 400px; /* Limita a largura dos botões em relação ao carrossel */
+    justify-content: space-between; /* Espaça os botões */
+    padding: 0 1rem; /* Padding para não colar nas bordas */
+}
+
+.carousel-control {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.carousel-control:hover:not(:disabled) {
+     background-color: #007bb2; /* Darker blue */
+}
+
+.carousel-control:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- MODAL DE PORTFÓLIO --- */
+.portfolio-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Z-index alto para ficar por cima de tudo */
+
+    /* Inicialmente oculto */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Classe adicionada via JS para mostrar o modal */
+.portfolio-modal-overlay.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.portfolio-modal-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 90%; /* Largura máxima no mobile */
+    max-height: 90vh; /* Altura máxima da viewport */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+    position: relative; /* Para o botão de fechar */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Centraliza o conteúdo */
+
+    /* Opcional: Animação de entrada */
+     transform: scale(0.9);
+     transition: transform 0.3s ease;
+}
+
+.portfolio-modal-overlay.is-visible .portfolio-modal-content {
+    transform: scale(1);
+}
+
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gray-paragraph);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--gray-headline);
+}
+
+.modal-project-image {
+    max-width: 100%;
+    height: auto; /* Altura automática */
+    max-height: 250px; /* Limita a altura da imagem no modal */
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    display: block; /* Garante que margin auto funcione */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-project-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--gray-headline);
+}
+
+.portfolio-modal-content p {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--gray-headline);
+}
+
+.modal-tech-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    display: flex; /* Exibe tecnologias em linha */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+    justify-content: center; /* Centraliza os itens */
+    gap: 8px; /* Espaço entre as tecnologias */
+}
+
+.modal-tech-list li {
+    background-color: var(--brand-blue-light-03); /* Fundo para cada tecnologia */
+    color: var(--brand-blue);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px; /* Formato pill */
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.modal-visit-site-btn {
+     margin-top: 1rem; /* Espaço acima do botão */
+     font-size: 1rem; /* Ajuste o tamanho do botão no modal */
+     padding: 0.7rem 1.5rem;
+}
+
+
 /* Testimonials Section */
 .testimonials-section {
     background-color: var(--brand-blue-light-03); /* Light blue background */
@@ -755,6 +998,60 @@ section {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
         gap: 2rem;
      }
+
+    /* Ajustes para a seção Portfólio no desktop */
+    .portfolio-item {
+        width: calc(33.333% - 14px); /* Ajuste a largura para caber 3 itens com gap de 20px */
+        max-width: none; /* Remove a largura máxima fixa */
+        margin: 0; /* Remove o margin auto */
+    }
+
+    .carousel-controls {
+         position: absolute;
+         top: 50%; /* Centraliza verticalmente */
+         left: 0;
+         right: 0;
+         transform: translateY(-50%);
+         display: flex;
+         justify-content: space-between;
+         padding: 0;
+         max-width: 100%; /* Permite que ocupe a largura do container */
+         pointer-events: none; /* Não interfere com cliques nos itens */
+    }
+
+     .carousel-control {
+          pointer-events: auto; /* Reativa cliques nos botões */
+          width: 50px; /* Botões maiores no desktop */
+          height: 50px;
+          font-size: 1.5rem;
+          /* Posicionamento exato dentro do .carousel-container */
+          position: absolute; /* Já está absolute do mobile, reajustar */
+          top: 50%; /* Centraliza verticalmente em relação ao .carousel-container */
+          transform: translateY(-50%); /* Ajuste para centralizar */
+     }
+
+     .carousel-control.prev {
+          left: -60px; /* Posição fora do container à esquerda */
+     }
+
+     .carousel-control.next {
+          right: -60px; /* Posição fora do container à direita */
+     }
+
+
+     /* Ajustes para o Modal no desktop */
+     .portfolio-modal-content {
+        max-width: 600px; /* Largura maior no desktop */
+     }
+
+      .modal-project-image {
+          max-height: 350px; /* Altura maior da imagem no modal desktop */
+     }
+
+     .modal-tech-list {
+         justify-content: center; /* Mantém centralizado */
+     }
+
 
     /* Testimonials Section (Desktop) */
      .testimonials-grid {

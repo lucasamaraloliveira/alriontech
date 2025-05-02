@@ -26,9 +26,10 @@
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li> <!-- NOVO LINK -->
                     <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato" class="btn btn-secondary">Contato</a></li> <!-- Exemplo de botão na nav -->
                 </ul>
-                
             </nav>
         </div>
     </header>
@@ -47,9 +48,11 @@
             <li><a href="#inicio">Início</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li> <!-- NOVO LINK -->
             <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li> <!-- Link de contato no mobile -->
         </ul>
-        
+
         <div class="social-icons">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -68,7 +71,7 @@
                 </div>
                 <div class="hero-image">
                     <!-- Replace with your hero illustration/image -->
-                    <img src="img/hero.svg" alt="Ilustração de desenvolvimento web">
+                    <img src="img/hero.png" alt="Ilustração de desenvolvimento web">
                 </div>
             </div>
         </section>
@@ -76,11 +79,11 @@
         <section class="stats-section">
             <div class="container stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">+100</span>
+                    <span class="stat-number">+4</span>
                     <span class="stat-label">Aplicações Criadas</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">+3</span>
+                    <span class="stat-number">+2</span>
                     <span class="stat-label">Especialistas Disponíveis</span>
                 </div>
                 <div class="stat-item">
@@ -96,7 +99,7 @@
                      <h3>Sobre Nós</h3>
                      <h4>Entenda quem somos e por quê existimos</h4>
                      <p>Somos uma equipe apaixonada por tecnologia e inovação, dedicada a transformar ideias em plataformas digitais robustas e atraentes. Nosso foco está em entender profundamente as necessidades de cada cliente para entregar soluções personalizadas que realmente impulsionam o sucesso online. Desde o design intuitivo e funcionalidade impecável, colocamos a experiência do usuário no centro do nosso processo de desenvolvimento. Na Alrion Tech, não apenas criamos sites e landing pages, mas construímos a base sólida para a sua presença digital, junto com você.</p>
-                     
+
                  </div>
                  <div class="about-image">
                      <img src="img/aboutus.png" alt="Imagem sobre a empresa Alrion Tech">
@@ -128,10 +131,70 @@
                         <h4>Landing Pages</h4>
                         <p>Páginas otimizadas para campanhas de marketing digital, perfeitas para capturar leads ou direcionar ações específicas.</p>
                     </div>
-                     <
+
                 </div>
              </div>
         </section>
+
+        <!-- NOVA SEÇÃO: Portfólio -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <h3>Nosso Portfólio</h3>
+                <p>Confira alguns dos nossos projetos mais recentes.</p>
+
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Itens do portfólio serão populados/mapeados aqui. -->
+                        <!-- Use data-project-id para vincular ao JS. -->
+
+                        <!-- Exemplo de Item Estático (substitua com seus próprios projetos) -->
+                         <div class="portfolio-item" data-project-id="0">
+                            <img src="img/portifolio1.png" alt="Screenshot do Projeto 1"> <!-- SUBSTITUIR IMAGEM -->
+                            <div class="item-text">
+                                <h4>Cris Diniz Depilação</h4> <!-- SUBSTITUIR NOME -->
+                                <p>Tipo: Website Institucional</p> <!-- SUBSTITUIR TIPO -->
+                            </div>
+                        </div>
+                        <div class="portfolio-item" data-project-id="1">
+                            <img src="img/portfolio-placeholder.png" alt="Screenshot do Projeto 2"> <!-- SUBSTITUIR IMAGEM -->
+                            <div class="item-text">
+                                <h4>Nome do Projeto 2</h4> <!-- SUBSTITUIR NOME -->
+                                <p>Tipo: Landing Page</p> <!-- SUBSTITUIR TIPO -->
+                            </div>
+                        </div>
+                         <div class="portfolio-item" data-project-id="2">
+                            <img src="img/portfolio-placeholder.png" alt="Screenshot do Projeto 3"> <!-- SUBSTITUIR IMAGEM -->
+                            <div class="item-text">
+                                <h4>Nome do Projeto 3</h4> <!-- SUBSTITUIR NOME -->
+                                <p>Tipo: E-commerce</p> <!-- SUBSTITUIR TIPO -->
+                            </div>
+                        </div>
+                         <div class="portfolio-item" data-project-id="3">
+                            <img src="img/portfolio-placeholder.png" alt="Screenshot do Projeto 4"> <!-- SUBSTITUIR IMAGEM -->
+                            <div class="item-text">
+                                <h4>Nome do Projeto 4</h4> <!-- SUBSTITUIR NOME -->
+                                <p>Tipo: Sistema Web</p> <!-- SUBSTITUIR TIPO -->
+                            </div>
+                        </div>
+                         <!-- Adicione mais itens conforme necessário, lembrando de atualizar o data-project-id -->
+
+                    </div>
+                </div>
+
+                 <!-- Controles do Carrossel -->
+                <div class="carousel-controls">
+                    <button class="carousel-control prev" aria-label="Anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control next" aria-label="Próximo">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIM NOVA SEÇÃO -->
+
 
         <section id="depoimentos" class="testimonials-section">
             <div class="container">
@@ -150,8 +213,6 @@
                 </div>
             </div>
         </section>
-
-         </section>
 
 
          <section id="contato" class="contact-section">
@@ -180,13 +241,33 @@
             <div class="social-icons">
                 <a href="https://www.instagram.com/alriontech/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/alriontech/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                 <a href="https://www.linkedin.com/company/alrion-tech-inova%C3%A7%C3%B5es-em-tecnologia/about/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a> <!-- Added LinkedIn based on asset -->
+                 <a href="https://www.linkedin.com/company/alrion-tech-inova%C3%A7%C3%B5es-em-tecnologia/about/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
          <button class="scroll-top" aria-label="Voltar para o topo">
             <i class="fas fa-arrow-up"></i>
         </button>
     </footer>
+
+    <!-- ESTRUTURA DO MODAL DE PORTFÓLIO -->
+    <div class="portfolio-modal-overlay">
+        <div class="portfolio-modal-content">
+            <button class="modal-close-btn" aria-label="Fechar Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="Imagem do Projeto no Modal" class="modal-project-image"> <!-- Opcional: mostrar imagem maior -->
+            <h4 class="modal-project-title">Título do Projeto</h4>
+            <p>Tecnologias Utilizadas:</p>
+            <ul class="modal-tech-list">
+                <!-- Itens da lista serão preenchidos pelo JS -->
+            </ul>
+            <a href="#" class="btn btn-primary modal-visit-site-btn" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visitar Site
+            </a>
+        </div>
+    </div>
+    <!-- FIM ESTRUTURA MODAL -->
+
 
     <script src="js/script.js"></script>
 </body>
