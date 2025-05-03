@@ -590,7 +590,7 @@ section {
 
 .modal-close-btn {
     position: absolute;
-    top: 1rem;
+    top: 0.3rem;
     right: 1rem;
     background: none;
     border: none;
