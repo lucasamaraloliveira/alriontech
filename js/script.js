@@ -110,16 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 1, // Mapeia para data-project-id="1" no HTML
-            title: "Nome do Projeto 2", // SUBSTITUIR
-            image: "img/portfolio-placeholder.png", // SUBSTITUIR
-            technologies: ["HTML", "CSS", "Bootstrap", "Marketing Digital"], // SUBSTITUIR
+            title: "Fator Crochê", // SUBSTITUIR
+            image: "img/portifolio2.png", // SUBSTITUIR
+            technologies: ["HTML", "CSS", "JavaScript", "Responsivo"], // SUBSTITUIR
             siteUrl: "https://www.exemplo2.com.br" // SUBSTITUIR
         },
          {
             id: 2, // Mapeia para data-project-id="2" no HTML
-            title: "Nome do Projeto 3", // SUBSTITUIR
-            image: "img/portfolio-placeholder.png", // SUBSTITUIR
-            technologies: ["HTML", "CSS", "JavaScript", "E-commerce", "API"], // SUBSTITUIR
+            title: "Seu Ponto de Retirada", // SUBSTITUIR
+            image: "img/portifolio3.png", // SUBSTITUIR
+            technologies: ["HTML", "CSS", "JavaScript", "Responsivo"], // SUBSTITUIR
             siteUrl: "https://www.exemplo3.com.br" // SUBSTITUIR
         },
          {
