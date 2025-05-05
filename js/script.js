@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
          {
             id: 2, // Mapeia para data-project-id="2" no HTML
-            title: "Seu Ponto de Retirada", // SUBSTITUIR
+            title: "Seu Portifólio", // SUBSTITUIR
             image: "img/portifolio3.png", // SUBSTITUIR
             technologies: ["HTML", "CSS", "JavaScript", "Responsivo"], // SUBSTITUIR
             siteUrl: "https://www.exemplo3.com.br" // SUBSTITUIR
