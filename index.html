@@ -1,260 +1,1030 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alrion Tech - Desenvolvimento de Sites e Landing Pages</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="img/logo.svg">
-    <!-- Google Fonts - DM Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg" href="logo.svg" />
+    <title>Alrion Tech - Soluções em Desenvolvimento Web</title>
+    <meta
+      name="description"
+      content="Alrion Tech: Desenvolvimento de sites, aplicações web, e-commerce e soluções digitais sob medida. Transforme sua presença online."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link para o arquivo CSS customizado -->
 
-    <header class="site-header">
-        <div class="container header-content">
-            <div class="logo">
-                <img src="img/logo.svg" alt="Alrion Tech Logo">
-            </div>
-            <button class="menu-toggle" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="desktop-nav">
-                 <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li> <!-- NOVO LINK -->
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Contato</a></li> <!-- Exemplo de botão na nav -->
-                </ul>
-            </nav>
+    <script>
+      // Configuração do Tailwind CSS
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#009BDB", // Cor primária azul
+              darkblue: "#007BB5", // Um azul um pouco mais escuro para hover, por exemplo
+              lightblue: "#102c4a", // Cor de fundo da hero (azul escuro)
+              graybg: "#f8f9fa", // Cinza bem claro para fundo
+              darkgray: "#333", // Cor escura para texto/elementos (usada na navbar rolada)
+              textlight: "#e0e0e0", // Cor clara para texto na navbar inicial
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px", // Mantido por convenção, mas pode usar default
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-graybg font-poppins">
+    <!-- Header & Navigation -->
+    <!-- Inicialmente bg-lightblue, sem shadow. A classe 'scrolled' será adicionada via JS -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-lightblue transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo - Cor inicial branca/clara, transição de cor -->
+        <a
+          href="#inicio"
+          class="text-2xl font-bold text-white transition-colors duration-300 logo-link"
+          ><img src="logo.svg" alt="Alrion Tech" class="w-32"
+        /></a>
+
+        <!-- Botão Mobile Menu Toggle - Cor inicial branca/clara, transição de cor -->
+        <div class="md:hidden">
+          <button
+            id="menuToggle"
+            class="w-10 h-10 flex items-center justify-center text-white transition-colors duration-300"
+            aria-label="Toggle menu mobile"
+          >
+            <i class="ri-menu-line ri-lg"></i>
+          </button>
         </div>
+
+        <!-- Container para Desktop Menu e Ícones -->
+        <div class="hidden md:flex items-center space-x-6">
+          <!-- Navegação Desktop - Links com cor inicial clara e transição -->
+          <nav class="flex items-center space-x-6">
+            <a
+              href="#inicio"
+              class="font-medium text-textlight hover:text-white transition-colors duration-300"
+              >Início</a
+            >
+            <a
+              href="#servicos"
+              class="font-medium text-textlight hover:text-white transition-colors duration-300"
+              >Serviços</a
+            >
+            <a
+              href="#processo"
+              class="font-medium text-textlight hover:text-white transition-colors duration-300"
+              >Processo</a
+            >
+            <a
+              href="#portfolio"
+              class="font-medium text-textlight hover:text-white transition-colors duration-300"
+              >Portfólio</a
+            >
+            <a
+              href="#sobre"
+              class="font-medium text-textlight hover:text-white transition-colors duration-300"
+              >Sobre</a
+            >
+            <a
+              href="#contato"
+              class="font-medium text-textlight hover:text-white transition-colors duration-300"
+              >Contato</a
+            >
+          </nav>
+
+          <!-- Ícones no Header (Opcional) - Cor inicial clara e transição -->
+          <div class="flex items-center space-x-4">
+            <!-- Exemplo: botão de busca com cor inicial clara -->
+            <!-- <button class="w-10 h-10 flex items-center justify-center text-textlight hover:text-white transition-colors duration-300" aria-label="Search">
+                <i class="ri-search-line ri-lg"></i>
+            </button> -->
+            <!-- Exemplo: ícone de conta com cor inicial clara -->
+            <!-- <button class="w-10 h-10 flex items-center justify-center text-textlight hover:text-white relative transition-colors duration-300" aria-label="User Account">
+                <i class="ri-user-line ri-lg"></i>
+            </button> -->
+          </div>
+        </div>
+      </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <nav class="mobile-menu">
-        <div class="container mobile-menu-header">
-             <div class="logo">
-                <img src="img/logo.svg" alt="Alrion Tech Logo">
+    <!-- Mobile Menu -->
+    <!-- Mantido bg-white para o menu que desliza -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out pt-20 px-6 mobile-menu"
+    >
+      <nav class="flex flex-col space-y-6 text-lg pt-8">
+        <a
+          href="#inicio"
+          class="text-gray-800 hover:text-primary py-2 border-b border-gray-100"
+          >Início</a
+        >
+        <a
+          href="#servicos"
+          class="text-gray-800 hover:text-primary py-2 border-b border-gray-100"
+          >Serviços</a
+        >
+        <a
+          href="#processo"
+          class="text-gray-800 hover:text-primary py-2 border-b border-gray-100"
+          >Processo</a
+        >
+        <a
+          href="#portfolio"
+          class="text-gray-800 hover:text-primary py-2 border-b border-gray-100"
+          >Portfólio</a
+        >
+        <a
+          href="#sobre"
+          class="text-gray-800 hover:text-primary py-2 border-b border-gray-100"
+          >Sobre</a
+        >
+        <a
+          href="#contato"
+          class="text-gray-800 hover:text-primary py-2 border-b border-gray-100"
+          >Contato</a
+        >
+      </nav>
+      <div class="mt-8 flex justify-center space-x-6">
+        <a
+          href="#"
+          class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:text-primary"
+          aria-label="LinkedIn"
+        >
+          <i class="ri-linkedin-fill ri-lg"></i>
+        </a>
+        <a
+          href="#"
+          class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:text-primary"
+          aria-label="GitHub"
+        >
+          <i class="ri-github-fill ri-lg"></i>
+        </a>
+        <a
+          href="#"
+          class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:text-primary"
+          aria-label="Twitter"
+        >
+          <i class="ri-twitter-fill ri-lg"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- Adicionado pt-20 e mantido pb-16 para compensar header fixo no mobile -->
+    <section
+      id="inicio"
+      class="bg-lightblue pt-24 pb-16 md:py-0 min-h-screen flex items-center"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+          <div
+            class="md:w-1/2 max-w-2xl mx-auto md:mx-0 text-center md:text-left"
+          >
+            <!-- Cores de texto para o fundo darkblue (#102c4a) -->
+
+            <h2
+              class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight"
+            >
+              Inovação Digital ao Seu Alcance
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+              Construindo sua presença online com elegância e eficiência.
+              Desenvolvimento de sites institucionais, landing pages,
+              e-commerces e sistemas web personalizados.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            >
+              <a
+                href="#servicos"
+                class="bg-primary hover:bg-darkblue text-white py-3 px-8 !rounded-button font-medium text-lg whitespace-nowrap transition-colors"
+                >Nossos Serviços</a
+              >
+              <!-- Botão secundário ajustado para fundo darkblue -->
+              <a
+                href="#contato"
+                class="bg-transparent border-2 border-white text-white hover:bg-white/10 py-3 px-8 !rounded-button font-medium text-lg whitespace-nowrap transition-colors"
+                >Fale Conosco</a
+              >
             </div>
-            <button class="close-menu" aria-label="Fechar menu">
-                <i class="fas fa-times"></i>
-            </button>
+          </div>
+
+          <div
+            class="md:w-1/2 flex justify-center md:justify-start opacity-0 lazy-load"
+            data-img-src="hero.png"
+          >
+            <!-- Ajuste a imagem da hero para ter um bom visual no fundo darkblue -->
+            <img
+              src="img/hero.png"
+              data-img-src="/hero3.png"
+              alt="Imagem relacionada a tecnologia"
+              class="w-full h-auto object-cover rounded-lg max-w-sm md:max-w-none"
+            />
+          </div>
         </div>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#portfolio">Portfólio</a></li> <!-- NOVO LINK -->
-            <li><a href="#depoimentos">Depoimentos</a></li>
-            <li><a href="#contato">Contato</a></li> <!-- Link de contato no mobile -->
-        </ul>
+      </div>
+    </section>
 
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+    <!-- Services Section -->
+    <section id="servicos" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            O Que Fazemos
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Oferecemos uma gama completa de serviços de desenvolvimento digital.
+          </p>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
         </div>
-    </nav>
 
-    <main>
-        <section id="inicio" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Bem-vindo à Alrion Tech!</h1>
-                    <h2>Desenvolvimento de Sites e Landing Page</h2>
-                    <p>Construindo sua presença online com elegância e eficiência. Desenvolvimento de sites institucionais, landing pages, e-commerces e sistemas web personalizados.</p>
-                    <a href="#contato" class="btn btn-primary">SOLICITAR ORÇAMENTO</a>
-                </div>
-                <div class="hero-image">
-                    <!-- Replace with your hero illustration/image -->
-                    <img src="img/hero.png" alt="Ilustração de desenvolvimento web">
-                </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div
+            class="service-card bg-graybg p-8 rounded-lg shadow-sm hover:shadow-md transition-all"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center rounded-full bg-primary/10 text-primary text-3xl mb-4"
+            >
+              <i class="ri-code-s-line"></i>
             </div>
-        </section>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Desenvolvimento de Sites
+            </h3>
+            <p class="text-gray-600">
+              Criamos sites responsivos, modernos e otimizados para performance
+              e SEO.
+            </p>
+            <a
+              href="#contato"
+              class="mt-4 inline-flex items-center text-primary font-medium hover:underline"
+            >
+              Saiba Mais
+              <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
 
-        <section class="stats-section">
-            <div class="container stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">+4</span>
-                    <span class="stat-label">Aplicações Criadas</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">+2</span>
-                    <span class="stat-label">Especialistas Disponíveis</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">+10</span>
-                    <span class="stat-label">Anos no Mercado</span>
-                </div>
+          <!-- Service Card 2 -->
+          <div
+            class="service-card bg-graybg p-8 rounded-lg shadow-sm hover:shadow-md transition-all"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center rounded-full bg-primary/10 text-primary text-3xl mb-4"
+            >
+              <i class="ri-terminal-window-line"></i>
             </div>
-        </section>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Aplicações Web
+            </h3>
+            <p class="text-gray-600">
+              Desenvolvemos sistemas web robustos e escaláveis para gerenciar
+              seus processos.
+            </p>
+            <a
+              href="#contato"
+              class="mt-4 inline-flex items-center text-primary font-medium hover:underline"
+            >
+              Saiba Mais
+              <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
 
-        <section id="sobre" class="about-section">
-            <div class="container about-content">
-                 <div class="about-text">
-                     <h3>Sobre Nós</h3>
-                     
-                     <p>Na Alrion Tech, focamos em resultados concretos para sua presença digital. Iniciamos entendendo a fundo seus objetivos, pois acreditamos que um site não é apenas uma página, mas uma extensão do seu negócio. Nosso diferencial está em criar plataformas que não apenas atraem, mas efetivamente convertem, impulsionando o seu sucesso online. Cada detalhe é pensado para traduzir a essência da sua marca.</p>
-
-                 </div>
-                 <div class="about-image">
-                     <img src="img/aboutus.png" alt="Imagem sobre a empresa Alrion Tech">
-                 </div>
+          <!-- Service Card 3 -->
+          <div
+            class="service-card bg-graybg p-8 rounded-lg shadow-sm hover:shadow-md transition-all"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center rounded-full bg-primary/10 text-primary text-3xl mb-4"
+            >
+              <i class="ri-store-line"></i>
             </div>
-        </section>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">E-commerce</h3>
+            <p class="text-gray-600">
+              Plataformas de comércio eletrônico seguras e fáceis de usar para
+              vender online.
+            </p>
+            <a
+              href="#contato"
+              class="mt-4 inline-flex items-center text-primary font-medium hover:underline"
+            >
+              Saiba Mais
+              <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
 
-        <section id="servicos" class="services-section">
-             <div class="container">
-                <h3>Alguns de nossos serviços</h3>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <i class="fas fa-check-circle service-icon"></i>
-                        <h4>Páginas de vendas</h4>
-                        <p>Páginas estratégicas focadas em alta conversão para vender seus produtos, serviços ou infoprodutos.</p>
-                    </div>
-                     <div class="service-card">
-                        <i class="fas fa-check-circle service-icon"></i>
-                        <h4>Página Institucional</h4>
-                        <p>O site principal da sua empresa, construído para transmitir credibilidade, história e seus diferenciais ao público.</p>
-                    </div>
-                     <div class="service-card">
-                        <i class="fas fa-check-circle service-icon"></i>
-                        <h4>Página de obrigado</h4>
-                        <p>Uma página pós-conversão essencial para agradecer ao cliente, fornecer informações adicionais e guiar os próximos passos.</p>
-                    </div>
-                     <div class="service-card">
-                        <i class="fas fa-check-circle service-icon"></i>
-                        <h4>Landing Pages</h4>
-                        <p>Páginas otimizadas para campanhas de marketing digital, perfeitas para capturar leads ou direcionar ações específicas.</p>
-                    </div>
-
-                </div>
-             </div>
-        </section>
-
-        <!-- NOVA SEÇÃO: Portfólio -->
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <h3>Nosso Portfólio</h3>
-                <p>Confira alguns dos nossos projetos mais recentes.</p>
-
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <!-- Itens do portfólio serão populados/mapeados aqui. -->
-                        <!-- Use data-project-id para vincular ao JS. -->
-
-                        <!-- Exemplo de Item Estático (substitua com seus próprios projetos) -->
-                         <div class="portfolio-item" data-project-id="0">
-                            <img src="img/portifolio1.png" alt="Screenshot do Projeto 1"> <!-- SUBSTITUIR IMAGEM -->
-                            <div class="item-text">
-                                <h4>Cris Diniz Depilação</h4> <!-- SUBSTITUIR NOME -->
-                                <p>Tipo: Website Institucional</p> <!-- SUBSTITUIR TIPO -->
-                            </div>
-                        </div>
-                        <div class="portfolio-item" data-project-id="1">
-                            <img src="img/portifolio2.png" alt="Screenshot do Projeto 2"> <!-- SUBSTITUIR IMAGEM -->
-                            <div class="item-text">
-                                <h4>Fator Crochê</h4> <!-- SUBSTITUIR NOME -->
-                                <p>Tipo: Landing Page</p> <!-- SUBSTITUIR TIPO -->
-                            </div>
-                        </div>
-                         <div class="portfolio-item" data-project-id="2">
-                            <img src="img/portifolio3.png" alt="Screenshot do Projeto 3"> <!-- SUBSTITUIR IMAGEM -->
-                            <div class="item-text">
-                                <h4>Seu Portifólio</h4> <!-- SUBSTITUIR NOME -->
-                                <p>Tipo: Landing Page</p> <!-- SUBSTITUIR TIPO -->
-                            </div>
-                        </div>
-                         
-                         <!-- Adicione mais itens conforme necessário, lembrando de atualizar o data-project-id -->
-
-                    </div>
-                </div>
-
-                 
-
+          <!-- Service Card 4 -->
+          <div
+            class="service-card bg-graybg p-8 rounded-lg shadow-sm hover:shadow-md transition-all"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center rounded-full bg-primary/10 text-primary text-3xl mb-4"
+            >
+              <i class="ri-smartphone-line"></i>
             </div>
-        </section>
-        <!-- FIM NOVA SEÇÃO -->
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Desenvolvimento Mobile
+            </h3>
+            <p class="text-gray-600">
+              Aplicativos nativos e híbridos para Android e iOS.
+            </p>
+            <a
+              href="#contato"
+              class="mt-4 inline-flex items-center text-primary font-medium hover:underline"
+            >
+              Saiba Mais
+              <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
 
-
-        <section id="depoimentos" class="testimonials-section">
-            <div class="container">
-                <h3>O que os clientes dizem sobre a Alrion Tech</h3>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>Vestibulum mollis est sed diam aliquam, dictum venenatis est aliquam. Sed tincidunt nisl quis ipsum ullamcorper, eget semper mi elementum. Nunc nec dolor sed elit dictum iaculis eu a diam. Cras mattis velit sed neque finibus.</p>
-                        <span class="testimonial-author">Wanessa Souza</span>
-                    </div>
-                     <div class="testimonial-card">
-                         <i class="fas fa-quote-left quote-icon"></i>
-                        <p>Vestibulum mollis est sed diam aliquam, dictum venenatis est aliquam. Sed tincidunt nisl quis ipsum ullamcorper, eget semper mi elementum. Nunc nec dolor sed elit dictum iaculis eu a diam. Cras mattis velit sed neque finibus.</p>
-                        <span class="testimonial-author">Wanessa Souza</span>
-                    </div>
-                </div>
+          <!-- Service Card 5 -->
+          <div
+            class="service-card bg-graybg p-8 rounded-lg shadow-sm hover:shadow-md transition-all"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center rounded-full bg-primary/10 text-primary text-3xl mb-4"
+            >
+              <i class="ri-database-2-line"></i>
             </div>
-        </section>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Banco de Dados & APIs
+            </h3>
+            <p class="text-gray-600">
+              Soluções eficientes de gerenciamento de dados e integrações.
+            </p>
+            <a
+              href="#contato"
+              class="mt-4 inline-flex items-center text-primary font-medium hover:underline"
+            >
+              Saiba Mais
+              <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
 
-
-         <section id="contato" class="contact-section">
-             <div class="container contact-content">
-                 <div class="contact-image">
-                    <img src="img/contactus.png" alt="Imagem de contato">
-                 </div>
-                 <div class="contact-form">
-                     <h3>Entre em contato com a gente!</h3>
-                     <!-- Placeholder for contact form or link -->
-                     <p>Para agendar sua consulta ou solicitar um orçamento, clique no botão abaixo:</p>
-                      <a href="https://wa.me/5521969630415?text=Olá! Gostaria de solicitar um orçamento para a criação do meu site." class="btn btn-whatsapp" target="_blank">
-                          <i class="fab fa-whatsapp"></i> SOLICITAR ORÇAMENTO
-                     </a>
-                 </div>
+          <!-- Service Card 6 -->
+          <div
+            class="service-card bg-graybg p-8 rounded-lg shadow-sm hover:shadow-md transition-all"
+          >
+            <div
+              class="w-14 h-14 flex items-center justify-center rounded-full bg-primary/10 text-primary text-3xl mb-4"
+            >
+              <i class="ri-shield-check-line"></i>
             </div>
-         </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <div class="footer-logo">
-                 <img src="img/logo.svg" alt="Alrion Tech Logo">
-            </div>
-            <p class="copyright">© 2025 Alrion Tech. Todos os direitos reservados.</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/alriontech/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/alriontech/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                 <a href="https://www.linkedin.com/company/alrion-tech-inova%C3%A7%C3%B5es-em-tecnologia/about/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Segurança Digital
+            </h3>
+            <p class="text-gray-600">
+              Garantimos a segurança e integridade das suas aplicações e dados.
+            </p>
+            <a
+              href="#contato"
+              class="mt-4 inline-flex items-center text-primary font-medium hover:underline"
+            >
+              Saiba Mais
+              <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
         </div>
-         <button class="scroll-top" aria-label="Voltar para o topo">
-            <i class="fas fa-arrow-up"></i>
-        </button>
+
+        <div class="mt-12 text-center">
+          <a
+            href="#contato"
+            class="inline-flex items-center text-primary font-medium hover:underline"
+          >
+            Solicitar um Orçamento
+            <i class="ri-arrow-right-line ri-lg ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section (formerly How to Buy) -->
+    <section id="processo" class="py-16 md:py-24 bg-white">
+      <!-- Alterado para bg-white -->
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <!-- Cores de texto para o fundo branco -->
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Nosso Processo de Trabalho
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Entenda as etapas que seguimos para entregar soluções de sucesso.
+          </p>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 text-primary mx-auto mb-4 text-3xl font-bold"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Briefing e Planejamento
+            </h3>
+            <p class="text-gray-600">
+              Analisamos suas necessidades e definimos o escopo do projeto.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 text-primary mx-auto mb-4 text-3xl font-bold"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Design e Prototipagem
+            </h3>
+            <p class="text-gray-600">
+              Criamos layouts e protótipos para visualizar a solução.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 text-primary mx-auto mb-4 text-3xl font-bold"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Desenvolvimento
+            </h3>
+            <p class="text-gray-600">
+              Codificamos e construímos a aplicação com tecnologias modernas.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 text-primary mx-auto mb-4 text-3xl font-bold"
+            >
+              4
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Entrega e Suporte
+            </h3>
+            <p class="text-gray-600">
+              Lançamos a solução e oferecemos suporte contínuo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 md:py-24 bg-graybg">
+      <!-- Alterado para bg-graybg -->
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Nosso Portfólio
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Veja alguns de nossos projetos recentes que entregaram resultados
+            reais para nossos clientes.
+          </p>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          <!-- Portfolio Item 1 -->
+          <div
+            class="portfolio-item group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+            data-title="Cris Diniz Depilação"
+            data-image="img/portfolio1.png"
+            data-tech="HTML, CSS, JavaScript, React, Node.js, PostgreSQL"
+            data-result="Aumento de 40% nas vendas online e 25% mais engajamento
+            de usuários em 3 meses."
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="img/portfolio1.png"
+                data-img-src="img/portfolio1.png"
+                alt="Cris Diniz Depilação"
+                class="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300 lazy-load"
+              />
+              <div
+                class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <i class="ri-eye-line ri-2x text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                Cris Diniz Depilação
+              </h3>
+              <p class="text-sm text-gray-600">
+                Desenvolvimento do site completo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 2 -->
+          <div
+            class="portfolio-item group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+            data-title="Sistema de Gestão Interna"
+            data-image="img/portfolio2.png"
+            data-tech="HTML, Tailwind CSS, JavaScript"
+            data-result="Otimização de
+            processos em 60%, redução de erros em 30% e melhoria na comunicação
+            da equipe."
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="img/portfolio2.png"
+                data-img-src="img/portfolio2.png"
+                alt="Sistema de Gestão Interna"
+                class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-300 lazy-load"
+              />
+              <div
+                class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <i class="ri-eye-line ri-2x text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                TechDev - NewsLetter
+              </h3>
+              <p class="text-sm text-gray-600">
+                NewsLetter para divulgação de novidades.
+              </p>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 3 -->
+          <div
+            class="portfolio-item group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+            data-title="Landing Page Marketing"
+            data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&h=600&q=80"
+            data-tech="HTML, CSS, Tailwind CSS, JavaScript"
+            data-result="Geração
+            de leads aumentou em 50% e a taxa de conversão dobrou após o
+            lançamento."
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMuorgvMjAwMC9zdmciPgogIDxyZWN0IHwiNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI0UwRTBFNSIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iU2Fucy1TZXJpZiIgZm9udC1zaXplPSIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iI0FBQUFBQSI+UG9ydGZvbGlvIDM8L3RleHQ+Cjwvc3ZnPg=="
+                data-img-src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&h=300&q=80"
+                alt="Landing Page Marketing"
+                class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-300 lazy-load"
+              />
+              <div
+                class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <i class="ri-eye-line ri-2x text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                Landing Page Marketing
+              </h3>
+              <p class="text-sm text-gray-600">
+                Página de alta conversão para campanha.
+              </p>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 4 -->
+          <div
+            class="portfolio-item group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+            data-title="Aplicativo Mobile Serviço"
+            data-image="img/portfolio4.png"
+            data-tech="HTML, CSS, Tailwind CSS, JavaScript"
+            data-result="Lançamento
+            bem-sucedido na App Store e Google Play, alcançando 10k+ downloads
+            nos primeiros 2 meses."
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="img/portfolio4.png"
+                data-img-src="img/portfolio4.png"
+                alt="Aplicativo Mobile Serviço"
+                class="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300 lazy-load"
+              />
+              <div
+                class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <i class="ri-eye-line ri-2x text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                Brecho - Serviços
+              </h3>
+              <p class="text-sm text-gray-600">
+                site de brecho de roupas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Adicione mais itens de portfólio conforme necessário -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Sobre a Alrion Tech
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+          <div class="w-full md:w-1/2 order-2 md:order-1">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+              Nossa Missão
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Somos uma equipe apaixonada por tecnologia, dedicada a transformar
+              ideias em realidade digital. Nosso objetivo é fornecer soluções
+              inovadoras e de alta qualidade que agreguem valor real aos
+              negócios de nossos clientes, com transparência e parceria em todas
+              as etapas.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex items-start space-x-3">
+                <div
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary"
+                >
+                  <i class="ri-lightbulb-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Inovação</h4>
+                  <p class="text-sm text-gray-600">
+                    Soluções criativas e de ponta
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary"
+                >
+                  <i class="ri-star-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Excelência</h4>
+                  <p class="text-sm text-gray-600">
+                    Códigos limpos e performance
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary"
+                >
+                  <i class="ri-group-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Parceria</h4>
+                  <p class="text-sm text-gray-600">
+                    Foco no sucesso do cliente
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary"
+                >
+                  <i class="ri-timer-line ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Agilidade</h4>
+                  <p class="text-sm text-gray-600">Entrega dentro do prazo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 order-1 md:order-2">
+            <!-- Imagem genérica de equipe de TI ou conceito abstrato de tecnologia -->
+            <!-- Use data-img-src para a imagem real, src para um placeholder -->
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMuorgvMjAwMC9zdmciPgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWghtT0iNDAwIiBmaWxsPSIjRTBFMEU1Ii8+CiAgPHRleHQgeD0iMzAwIiB5PSIyMDAiIGZvbnQtZmFtaWx5PSJTYW5zLVNlcmlmIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjQUFBQUFBIj5Tb2JyZSBOb3M8L3RleHQ+Cjwvc3ZnPg=="
+              data-img-src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&h=400&q=80"
+              alt="Equipe trabalhando em projeto de tecnologia"
+              class="w-full h-auto rounded-lg shadow-lg object-cover object-center lazy-load"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contato" class="py-16 md:py-24 bg-primary text-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Pronto para Começar Seu Projeto?
+          </h2>
+          <p class="text-white/90 text-lg mb-8">
+            Entre em contato conosco para discutir suas ideias e descobrir como
+            podemos ajudar a alcançá-las.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <a
+              href="mailto:contato@alriontech.com.br"
+              class="bg-white text-primary hover:bg-gray-100 py-3 px-6 !rounded-button font-medium flex items-center justify-center whitespace-nowrap transition-colors"
+            >
+              <i class="ri-mail-line ri-lg mr-2"></i>
+              Enviar um E-mail
+            </a>
+            <!-- Link WhatsApp - Exemplo, use um número real se tiver -->
+            <a
+              href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto."
+              class="bg-transparent border-2 border-white text-white hover:bg-white/10 py-3 px-6 !rounded-button font-medium flex items-center justify-center whitespace-nowrap transition-colors"
+            >
+              <i class="ri-whatsapp-line ri-lg mr-2"></i>
+              Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <img src="logo.svg" class="w-32 mb-4 ml-14" alt="" />
+            <p class="text-gray-400 mb-6">
+              Soluções de desenvolvimento web e mobile que impulsionam seu
+              negócio na era digital.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary text-white transition-colors"
+                aria-label="GitHub"
+              >
+                <i class="ri-github-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary text-white transition-colors"
+                aria-label="Twitter"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#inicio"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Início</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#servicos"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Serviços</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#processo"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Nosso Processo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Portfólio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#sobre"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Sobre Nós</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contato"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contato</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Serviços</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#servicos"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Desenvolvimento de Sites</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#servicos"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Aplicações Web</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#servicos"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >E-commerce</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#servicos"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Desenvolvimento Mobile</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#servicos"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Consultoria</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contato</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                >
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <!-- Endereço Exemplo -->
+                <span class="text-gray-400"
+                  >Rua da Tecnologia, 123, Cidade Digital - UF</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                >
+                  <i class="ri-phone-line"></i>
+                </div>
+                <!-- Telefone Exemplo -->
+                <span class="text-gray-400">(21) 96963-0415</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                >
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-400">contato@alriontech.com.br</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                >
+                  <i class="ri-time-line"></i>
+                </div>
+                <span class="text-gray-400">Seg - Sex: 9h às 18h</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-gray-800 text-center">
+          <p class="text-gray-500 text-sm">
+            © 2025 Alrion Tech. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <!-- ESTRUTURA DO MODAL DE PORTFÓLIO -->
-    <div class="portfolio-modal-overlay">
-        <div class="portfolio-modal-content">
-            <button class="modal-close-btn" aria-label="Fechar Modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <img src="" alt="Imagem do Projeto no Modal" class="modal-project-image"> <!-- Opcional: mostrar imagem maior -->
-            <h4 class="modal-project-title">Título do Projeto</h4>
-            <p>Tecnologias Utilizadas:</p>
-            <ul class="modal-tech-list">
-                <!-- Itens da lista serão preenchidos pelo JS -->
-            </ul>
-            <a href="#" class="btn btn-primary modal-visit-site-btn" target="_blank">
-                 Visitar Site
-            </a>
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/5521969630415?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto."
+      class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-lg z-50 floating-whatsapp"
+      aria-label="Falar no WhatsApp"
+    >
+      <i class="ri-whatsapp-line ri-xl"></i>
+    </a>
+
+    <!-- Portfolio Modal Structure -->
+    <div
+      id="portfolioModal"
+      class="fixed inset-0 bg-black bg-opacity-75 z-[100] hidden flex items-center justify-center p-4"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div
+        class="modal-content bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto relative transform transition-all sm:w-full p-6"
+      >
+        <!-- Botão de fechar -->
+        <button
+          id="closeModal"
+          class="absolute top-3 right-3 text-gray-700 hover:text-gray-900 text-2xl z-10"
+          aria-label="Fechar modal"
+        >
+          <i class="ri-close-line"></i>
+        </button>
+
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- Imagem do projeto -->
+          <div class="md:w-1/2 flex-shrink-0">
+            <img
+              id="modalImage"
+              src=""
+              alt="Imagem do Projeto"
+              class="w-full h-auto rounded-md mb-4 object-cover max-h-64 md:max-h-none"
+            />
+          </div>
+
+          <!-- Detalhes do projeto -->
+          <div class="md:w-1/2">
+            <h3
+              id="modalTitle"
+              class="text-2xl font-bold text-gray-800 mb-3"
+            ></h3>
+            <p class="text-gray-600 mb-4 border-b pb-4 border-gray-200">
+              <span class="font-semibold text-gray-800"
+                >Tecnologias Utilizadas:</span
+              >
+              <span id="modalTech"></span>
+            </p>
+            <div>
+              <p class="font-semibold text-gray-800 mb-2">
+                Resultado para o Negócio:
+              </p>
+              <p id="modalResult" class="text-gray-700"></p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- FIM ESTRUTURA MODAL -->
 
-
-    <script src="js/script.js"></script>
-</body>
+    <script src="script.js"></script>
+    <!-- Link para o arquivo JavaScript customizado -->
+  </body>
 </html>

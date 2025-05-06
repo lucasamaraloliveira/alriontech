@@ -1,0 +1,85 @@
+/* style.css */
+
+/* Definição da fonte principal no body */
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth; /* Mantido o smooth scroll via CSS */
+}
+
+/* Classe para desabilitar scroll no body quando o modal estiver aberto */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Efeito de sombra customizado (pode ser útil, mantido) */
+.custom-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hero {
+  background-color: #ffffff;
+}
+
+/* Estilos para os cards de serviço */
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra no hover */
+}
+
+/* Estilos para os cards de portfolio */
+.portfolio-item {
+  transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra no hover */
+}
+
+/* Estilos específicos para o modal (opcional, Tailwind já faz a maior parte) */
+/* .modal-content {
+      max-width: 800px; // Exemplo de largura máxima
+  } */
+
+/* Animação do botão flutuante do WhatsApp */
+.floating-whatsapp {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Estilos para Lazy Loading de Imagens e Elementos (mantido a transição de opacidade) */
+/* Inicialmente oculto pela classe lazy-load */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Transição mais suave */
+}
+
+/* Fica visível quando a classe loaded é adicionada pelo JS */
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Ocultar spinners de input number (mantido) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
