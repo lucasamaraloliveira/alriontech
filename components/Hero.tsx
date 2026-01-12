@@ -3,6 +3,14 @@ import React from 'react';
 import { ArrowDownRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const handlePhilosophyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.querySelector('#about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#262626] pt-32 md:pt-40">
       {/* Background elements com animação de flutuação suave */}
@@ -47,6 +55,7 @@ const Hero: React.FC = () => {
           </a>
           <a
             href="#about"
+            onClick={handlePhilosophyClick}
             className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border border-white/10 text-white font-medium text-[10px] md:text-xs uppercase tracking-widest hover:border-[#85DEF2] hover:text-[#85DEF2] rounded-lg transition-all duration-500"
           >
             Nossa Filosofia
