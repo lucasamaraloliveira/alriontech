@@ -1,0 +1,8 @@
+{
+  "name": "Alrion Tech - Luxury Web Design",
+  "description": "A high-end, luxury landing page for Alrion Tech, focusing on exclusive web development and elite digital presence.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
