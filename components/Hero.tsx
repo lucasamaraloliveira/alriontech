@@ -27,13 +27,6 @@ const Hero: React.FC = () => {
             </p>
           </div>
         </div>
-
-        <div className="overflow-hidden mb-6">
-          <p className="text-[#85DEF2] text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.3em] sm:tracking-[0.5em] font-bold animate-slide-up animation-delay-200">
-            Arquitetura Digital de Alta Performance
-          </p>
-        </div>
-
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.1] mb-8 animate-fade-in-up animation-delay-500">
           Transformamos visão em <br />
           <span className="italic text-[#009BDB] drop-shadow-[0_0_15px_rgba(0,155,219,0.3)] relative inline-block">
@@ -41,15 +34,9 @@ const Hero: React.FC = () => {
             <span className="absolute bottom-2 left-0 w-full h-[1px] bg-[#009BDB]/30 scale-x-0 animate-expand-width animation-delay-1500"></span>
           </span>.
         </h1>
-
         <p className="text-[#85DEF2] text-xs sm:text-sm md:text-lg font-light tracking-[0.1em] sm:tracking-[0.2em] uppercase mb-8 italic opacity-0 animate-fade-in animation-delay-1000">
           Onde a sofisticação encontra a potência do código puro.
         </p>
-
-        <p className="text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 md:mb-12 font-light opacity-0 animate-fade-in animation-delay-1200">
-          Desenvolvimento exclusivo para marcas que exigem nada menos que a perfeição absoluta e estabilidade impecável.
-        </p>
-
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 opacity-0 animate-fade-in animation-delay-1500">
           <a
             href="#portfolio"
