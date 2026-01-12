@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppFAB from './components/WhatsAppFAB';
-import AIConcierge from './components/AIConcierge';
+
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import AllProjects from './components/AllProjects';
@@ -48,7 +48,7 @@ const LandingPage: React.FC = () => {
       <Footer />
       <ScrollToTop />
       <WhatsAppFAB />
-      <AIConcierge />
+
     </div>
   );
 };
