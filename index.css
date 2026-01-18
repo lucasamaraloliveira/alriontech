@@ -1,6 +1,93 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  --color-brand: #009BDB;
+  --color-brand-light: #85DEF2;
+  --color-bg: #262626;
+
+  /* Animations */
+  --animate-slow-zoom: slowZoom 20s linear infinite alternate;
+  --animate-blob: blob 7s infinite alternate;
+  --animate-slide-up: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-in-up: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-in: fadeIn 1.5s ease-out forwards;
+  --animate-expand-width: expandWidth 1s ease-out forwards;
+
+  @keyframes slowZoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes expandWidth {
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
 
 @layer base {
   body {
@@ -11,28 +98,25 @@
 }
 
 @layer components {
-  .font-serif {
-    font-family: 'Playfair Display', serif;
-  }
-  
+
   /* Reveal Animation Classes */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  
+
   .reveal.active {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   .reveal-left {
     opacity: 0;
     transform: translateX(-40px);
     transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  
+
   .reveal-left.active {
     opacity: 1;
     transform: translateX(0);
@@ -43,7 +127,7 @@
     position: relative;
     @apply overflow-hidden;
   }
-  
+
   .btn-shine::after {
     content: '';
     position: absolute;
@@ -55,7 +139,7 @@
     transform: rotate(30deg);
     transition: none;
   }
-  
+
   .btn-shine:hover::after {
     left: 120%;
     transition: all 0.7s ease-in-out;

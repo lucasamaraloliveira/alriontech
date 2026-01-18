@@ -16,8 +16,9 @@ const Logo: React.FC<LogoProps> = ({
       <img
         src="/logo.png"
         alt="Alrion Tech Logo"
-        width={160}
-        height={60}
+        width={320}
+        height={120}
+        style={{ aspectRatio: '320 / 120' }}
         className="h-full w-auto object-contain brightness-110 contrast-105"
       />
     </div>

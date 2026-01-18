@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
           <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest font-black mb-2">Jurídico</h3>
           <a href="#/privacidade" className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors">Privacidade</a>
           <a href="#/termos" className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors">Termos de Uso</a>
-          <p className="text-white/40 text-[8px] uppercase tracking-[0.2em] mt-4 pt-4 border-t border-white/5 w-full text-center md:text-left">
+          <p className="text-white/60 text-[8px] uppercase tracking-[0.2em] mt-4 pt-4 border-t border-white/5 w-full text-center md:text-left">
             &copy; {new Date().getFullYear()} ALRION TECH
           </p>
         </div>
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
             <a href="#" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold">Instagram</a>
             <a href="#" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold">LinkedIn</a>
           </div>
-          <p className="text-white/30 text-[9px] uppercase tracking-[0.2em] mt-4">
+          <p className="text-white/60 text-[9px] uppercase tracking-[0.2em] mt-4">
             contato@alriontech.com
           </p>
         </div>
