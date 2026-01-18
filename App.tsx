@@ -38,32 +38,42 @@ const LandingPage: React.FC = () => {
   }, [pathname]);
 
   useEffect(() => {
-    // Adiamos a inicialização para evitar Reflow Forçado no carregamento crítico
-    const startObserver = () => {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -20px 0px"
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      const revealElements = document.querySelectorAll('.reveal, .reveal-left');
-      revealElements.forEach(el => observer.observe(el));
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: "0px 0px -50px 0px"
     };
 
-    // Inicializa quando o navegador estiver ocioso
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(() => startObserver());
-    } else {
-      setTimeout(startObserver, 500);
-    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const observe = () => {
+      document.querySelectorAll('.reveal:not(.active), .reveal-left:not(.active)').forEach(el => {
+        observer.observe(el);
+      });
+    };
+
+    // Observa o carregamento de novos elementos (Lazy Loading)
+    const mutationObserver = new MutationObserver(() => {
+      observe();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    observe(); // Primeira execução
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   return (
