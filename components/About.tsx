@@ -9,7 +9,7 @@ const About: React.FC = () => {
           <div className="absolute -top-10 -left-6 sm:-left-10 text-[6rem] sm:text-[10rem] font-serif text-[#009BDB]/10 leading-none select-none">A</div>
           <div className="relative z-10 overflow-hidden group">
             <img
-              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2070"
+              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200"
               alt="Office Minimalist"
               width={800}
               height={1000}

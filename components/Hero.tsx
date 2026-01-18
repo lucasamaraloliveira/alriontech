@@ -23,6 +23,7 @@ const Hero: React.FC = () => {
             alt="Modern Web Development Workspace"
             width={1920}
             height={1080}
+            fetchPriority="high"
             className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-40 grayscale-[0.5] contrast-125"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#262626]/20 via-[#262626]/60 to-[#262626] shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]"></div>
@@ -107,6 +108,9 @@ const Hero: React.FC = () => {
         .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
         .animate-expand-width { animation: expandWidth 1s ease-out forwards; transform-origin: left; }
         .animate-slow-zoom { animation: slowZoom 20s linear infinite alternate; }
+        @media (max-width: 768px) {
+          .animate-slow-zoom { animation: none; transform: scale(1.05); }
+        }
         .animate-blob { animation: blob 7s infinite alternate; }
         .animation-delay-200 { animation-delay: 0.2s; }
         .animation-delay-500 { animation-delay: 0.5s; }

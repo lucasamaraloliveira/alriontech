@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#262626] text-white selection:bg-[#009BDB] selection:text-white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Reveal Animation Classes */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Shine Effect for Buttons */
+  .btn-shine {
+    position: relative;
+    @apply overflow-hidden;
+  }
+  
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: none;
+  }
+  
+  .btn-shine:hover::after {
+    left: 120%;
+    transition: all 0.7s ease-in-out;
+  }
+}
+
+/* Smooth scrollbar for luxury feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #262626;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #575759;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #009BDB;
+}
