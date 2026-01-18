@@ -9,7 +9,7 @@ const allProjects = [
     {
         title: "Blue Horizon",
         category: "Architecture & Design",
-        img: "./blue-horizon.png",
+        img: "./blue-horizon.webp",
         link: "https://blue-horizon-ten.vercel.app/",
         description: "Plataforma digital para um escritório de arquitetura de luxo, focada em visualização imersiva e minimalismo sofisticado."
     },
@@ -86,7 +86,7 @@ const allProjects = [
     {
         title: "Silva Studios",
         category: "stattionery store",
-        img: "./silva-studio.png",
+        img: "./silva-studio.webp",
         link: "https://silva-studio.vercel.app/",
         description: "Silva Studio: onde a sofisticação encontra a experimentação. Papelaria de vanguarda para quem redefine o amanhã."
     }

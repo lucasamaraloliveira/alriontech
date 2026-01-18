@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#85DEF2]/10 rounded-full blur-[100px] md:blur-[150px] animate-blob animation-delay-4000"></div>
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/hero-bg.png"
+            src="/hero-bg.webp"
             alt="Modern Web Development Workspace"
             width={1920}
             height={1080}
