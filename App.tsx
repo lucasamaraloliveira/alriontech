@@ -7,14 +7,15 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppFAB from './components/WhatsAppFAB';
 
+import About from './components/About';
+import Services from './components/Services';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
+
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 
-// Lazy loading components for performance
-const About = lazy(() => import('./components/About'));
-const Services = lazy(() => import('./components/Services'));
-const Portfolio = lazy(() => import('./components/Portfolio'));
-const Contact = lazy(() => import('./components/Contact'));
+// Mantemos lazy apenas o que REALMENTE é outra página
 const AllProjects = lazy(() => import('./components/AllProjects'));
 
 
