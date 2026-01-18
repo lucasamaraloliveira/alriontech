@@ -16,6 +16,8 @@ const Logo: React.FC<LogoProps> = ({
       <img
         src="/logo.png"
         alt="Alrion Tech Logo"
+        width={160}
+        height={60}
         className="h-full w-auto object-contain brightness-110 contrast-105"
       />
     </div>

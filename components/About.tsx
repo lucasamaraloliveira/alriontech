@@ -14,6 +14,7 @@ const About: React.FC = () => {
               width={800}
               height={1000}
               loading="lazy"
+              decoding="async"
               className="w-full aspect-[4/5] object-cover border-l-4 border-[#009BDB] p-3 sm:p-4 bg-[#575759]/20 transition-transform duration-1000 group-hover:scale-105"
             />
           </div>

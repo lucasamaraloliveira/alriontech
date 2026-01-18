@@ -47,6 +47,7 @@ const LandingPage: React.FC = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
+          observer.unobserve(entry.target); // Stop observing once animated
         }
       });
     }, observerOptions);

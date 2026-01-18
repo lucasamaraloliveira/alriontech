@@ -24,6 +24,7 @@ const Hero: React.FC = () => {
             width={1920}
             height={1080}
             fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-40 grayscale-[0.5] contrast-125"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#262626]/20 via-[#262626]/60 to-[#262626] shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]"></div>
