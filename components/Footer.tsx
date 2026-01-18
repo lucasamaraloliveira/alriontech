@@ -80,11 +80,11 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center md:items-start space-y-4">
           <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest font-black mb-2">Conecte-se</h3>
           <div className="flex gap-6">
-            <a href="#" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold">Instagram</a>
-            <a href="#" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold">LinkedIn</a>
+            <a href="https://www.instagram.com/alriontech/" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/alrion-tech-inova%C3%A7%C3%B5es-em-tecnologia/?viewAsMember=true" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold" target="_blank">LinkedIn</a>
           </div>
           <p className="text-white/60 text-[9px] uppercase tracking-[0.2em] mt-4">
-            contato@alriontech.com
+            alriontecnologia@gmail.com
           </p>
         </div>
       </div>

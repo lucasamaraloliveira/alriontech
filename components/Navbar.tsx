@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
             onClick={() => setIsOpen(false)}
             className="px-6 py-2.5 bg-[#009BDB] text-white hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-500 text-[9px] uppercase tracking-widest font-black rounded-lg shadow-lg shadow-[#009BDB]/20"
           >
-            Consultoria
+            Solicitar Orçamento
           </a>
         </div>
 

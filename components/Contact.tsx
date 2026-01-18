@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Sede</h3>
-                  <p className="text-white/80 text-sm">Av. Paulista, 1000 - São Paulo, BR</p>
+                  <p className="text-white/80 text-sm">Teresópolis - Rio de Janeiro, BR</p>
                 </div>
               </div>
               <div className="flex gap-6 items-start text-left">
@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Direct</h3>
-                  <p className="text-white/80 text-sm">contato@alriontech.com</p>
+                  <p className="text-white/80 text-sm">alriontecnologia@gmail.com</p>
                 </div>
               </div>
             </div>
