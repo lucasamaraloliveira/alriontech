@@ -18,16 +18,37 @@ const Contact = lazy(() => import('./components/Contact'));
 const AllProjects = lazy(() => import('./components/AllProjects'));
 
 
+const LazySection: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px' }); // Começa a baixar 200px antes de chegar
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="reveal">
+      {isVisible ? children : <div className="h-96" />}
+    </div>
+  );
+};
+
 const LandingPage: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Scroll to section if path is not root
     if (pathname !== '/') {
       const sectionId = pathname.substring(1);
       const element = document.getElementById(sectionId);
       if (element) {
-        // Delay scroll slightly to ensure content is rendered
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -37,54 +58,15 @@ const LandingPage: React.FC = () => {
     }
   }, [pathname]);
 
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.05,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const observe = () => {
-      document.querySelectorAll('.reveal:not(.active), .reveal-left:not(.active)').forEach(el => {
-        observer.observe(el);
-      });
-    };
-
-    // Observa o carregamento de novos elementos (Lazy Loading)
-    const mutationObserver = new MutationObserver(() => {
-      observe();
-    });
-
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
-    observe(); // Primeira execução
-
-    return () => {
-      observer.disconnect();
-      mutationObserver.disconnect();
-    };
-  }, []);
-
   return (
     <div className="relative min-h-screen">
       <Navbar />
       <Hero />
       <Suspense fallback={<div className="h-96 bg-[#262626]"></div>}>
-        <div className="reveal"><About /></div>
-        <div className="reveal"><Services /></div>
-        <div className="reveal"><Portfolio /></div>
-        <div className="reveal"><Contact /></div>
+        <LazySection><About /></LazySection>
+        <LazySection><Services /></LazySection>
+        <LazySection><Portfolio /></LazySection>
+        <LazySection><Contact /></LazySection>
       </Suspense>
       <Footer />
       <ScrollToTop />
@@ -92,6 +74,7 @@ const LandingPage: React.FC = () => {
     </div>
   );
 };
+
 
 const App: React.FC = () => {
   return (
