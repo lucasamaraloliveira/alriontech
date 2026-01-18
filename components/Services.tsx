@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Layout, Smartphone, PenTool, BarChart3 } from 'lucide-react';
+import { Layout, Smartphone, RefreshCw, BarChart3 } from 'lucide-react';
 
 const services = [
   {
@@ -14,9 +14,9 @@ const services = [
     desc: "Interfaces responsivas desenvolvidas com tecnologia de ponta para dispositivos premium."
   },
   {
-    icon: <PenTool className="text-[#009BDB]" size={32} />,
-    title: "Identidade Visual Digital",
-    desc: "Criação de branding digital que transmite luxo, solidez e sofisticação em cada detalhe."
+    icon: <RefreshCw className="text-[#009BDB]" size={32} />,
+    title: "Redesign & Modernização",
+    desc: "Transformação de sites obsoletos em experiências digitais contemporâneas, fluidas e visualmente impactantes."
   },
   {
     icon: <BarChart3 className="text-[#009BDB]" size={32} />,
@@ -36,8 +36,8 @@ const Services: React.FC = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((s, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="reveal group p-6 md:p-8 border border-white/5 hover:border-[#009BDB]/30 bg-[#262626] transition-all duration-700 hover:-translate-y-4 shadow-2xl"
               style={{ transitionDelay: `${idx * 150}ms` }}
             >

@@ -94,7 +94,9 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a
-            href="#/contato"
+            href="https://wa.me/5521969630415"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
             className="px-6 py-2.5 bg-[#009BDB] text-white hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-500 text-[9px] uppercase tracking-widest font-black rounded-lg shadow-lg shadow-[#009BDB]/20"
           >
@@ -137,7 +139,9 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a
-            href="#/contato"
+            href="https://wa.me/5521969630415"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
             className="w-full max-w-xs px-10 py-4 bg-[#009BDB] text-white text-[10px] uppercase tracking-widest font-black rounded-lg mt-4 text-center"
           >
