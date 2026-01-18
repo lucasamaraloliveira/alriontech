@@ -37,7 +37,9 @@ const Contact: React.FC = () => {
           name: name,
           email: email,
           message: message,
-          _subject: `Nova Proposta: ${name}`,
+          _subject: `💎 Nova Proposta Alrion: ${name}`,
+          _template: "table",
+          _captcha: "false"
         })
       });
 

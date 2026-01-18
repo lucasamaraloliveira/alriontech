@@ -19,22 +19,22 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onClose }) => {
 
     return (
         <div
-            className={`fixed top-8 left-1/2 -translate-x-1/2 z-[9999] transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-12 opacity-0 pointer-events-none'
+            className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[99999] transition-all duration-500 transform ${isVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0 pointer-events-none'
                 }`}
         >
-            <div className="bg-[#262626]/90 backdrop-blur-2xl border border-[#009BDB]/40 px-8 py-5 rounded-3xl shadow-[0_20px_50px_rgba(0,155,219,0.2)] flex items-center gap-6 min-w-[340px] max-w-[90vw]">
-                <div className="w-12 h-12 bg-[#009BDB]/20 rounded-2xl flex items-center justify-center shrink-0 animate-pulse">
-                    <CheckCircle2 size={28} className="text-[#009BDB]" />
+            <div className="bg-[#262626]/95 backdrop-blur-3xl border border-[#009BDB]/50 px-10 py-8 rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,155,219,0.3)] flex flex-col items-center gap-6 min-w-[320px] max-w-[90vw] text-center">
+                <div className="w-20 h-20 bg-[#009BDB]/20 rounded-3xl flex items-center justify-center animate-bounce">
+                    <CheckCircle2 size={40} className="text-[#009BDB]" />
                 </div>
-                <div className="flex-1">
-                    <p className="text-[#85DEF2] text-[11px] uppercase tracking-[0.3em] font-black mb-1 text-left">Sucesso</p>
-                    <p className="text-white text-sm font-light tracking-wide text-left leading-relaxed">{message}</p>
+                <div>
+                    <p className="text-[#85DEF2] text-[12px] uppercase tracking-[0.4em] font-black mb-2">Mensagem Enviada</p>
+                    <p className="text-white text-base font-light tracking-wide leading-relaxed max-w-[280px]">{message}</p>
                 </div>
                 <button
                     onClick={onClose}
-                    className="p-2 hover:bg-white/10 rounded-xl transition-all text-white/30 hover:text-white"
+                    className="mt-4 px-8 py-3 bg-[#009BDB]/10 hover:bg-[#009BDB]/20 border border-[#009BDB]/30 rounded-2xl transition-all text-[#85DEF2] text-[10px] uppercase tracking-widest font-bold"
                 >
-                    <X size={20} />
+                    Fechar
                 </button>
             </div>
         </div>
