@@ -38,24 +38,32 @@ const LandingPage: React.FC = () => {
   }, [pathname]);
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
+    // Adiamos a inicialização para evitar Reflow Forçado no carregamento crítico
+    const startObserver = () => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -20px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left');
+      revealElements.forEach(el => observer.observe(el));
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target); // Stop observing once animated
-        }
-      });
-    }, observerOptions);
-
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left');
-    revealElements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
+    // Inicializa quando o navegador estiver ocioso
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => startObserver());
+    } else {
+      setTimeout(startObserver, 500);
+    }
   }, []);
 
   return (
