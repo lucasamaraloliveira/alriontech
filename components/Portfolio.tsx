@@ -13,18 +13,18 @@ const projects = [
     description: "Plataforma digital para um escritório de arquitetura de luxo, focada em visualização imersiva e minimalismo sofisticado."
   },
   {
-    title: "Skyline Assets",
-    category: "Corporate Finance",
-    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2070",
-    link: "#",
-    description: "Dashboard exclusivo para gestão de ativos de alto patrimônio, unindo segurança bancária com estética de alto nível."
+    title: "Pure Elegance",
+    category: "Fashion & Beauty",
+    img: "./pure-elegance.png",
+    link: "https://pure-elegance.vercel.app/",
+    description: "Uma casa de moda boutique dedicada à precisão arquitetônica da silhueta e à alma poética de quem a veste."
   },
   {
-    title: "Urban Pure",
-    category: "Luxury Tech",
-    img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2069",
-    link: "#",
-    description: "Ecommerce de dispositivos inteligentes premium, priorizando a experiência do usuário e a fluidez de navegação."
+    title: "Silva Studio",
+    category: "stattionery store",
+    img: "./silva-studio.png",
+    link: "https://silva-studio.vercel.app/",
+    description: "Silva Studio: onde a sofisticação encontra a experimentação. Papelaria de vanguarda para quem redefine o amanhã."
   }
 ];
 

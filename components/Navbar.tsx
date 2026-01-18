@@ -27,7 +27,8 @@ const Navbar: React.FC = () => {
     const isHome = window.location.hash === '#/' || window.location.hash === '' || window.location.hash.startsWith('#/?');
     if (!isHome) {
       // If not on the home page, redirect to home and then scroll
-      window.location.href = window.location.pathname + '#/' + hash.substring(1); // Use pathname for explicit home path
+      const targetPath = hash === '#home' ? '' : hash.substring(1);
+      window.location.href = window.location.pathname + '#/' + targetPath;
     } else {
       // Smooth scroll on the same page
       e.preventDefault();

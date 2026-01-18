@@ -7,6 +7,8 @@ const Contact: React.FC = () => {
   const [message, setMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     // Permitir apenas letras e espaços
@@ -15,17 +17,43 @@ const Contact: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name.length < 8) {
       alert("O nome deve ter no mínimo 8 letras.");
       return;
     }
-    // Lógica de envio simulada
-    setShowToast(true);
-    setName('');
-    setEmail('');
-    setMessage('');
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/alriontecnologia@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          _subject: `Nova Proposta: ${name}`,
+        })
+      });
+
+      if (response.ok) {
+        setShowToast(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        alert("Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.");
+      }
+    } catch (error) {
+      alert("Erro de conexão. Verifique sua internet.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,8 +80,8 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="flex gap-6 items-start text-left">
-                <div className="w-10 h-10 border border-[#85DEF2] rounded-full flex items-center justify-center shrink-0">
-                  <div className="w-2 h-2 bg-[#009BDB] rounded-full"></div>
+                <div className="w-10 h-10 border border-[#85DEF2] rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-2 h-2 bg-[#009BDB] rounded-sm"></div>
                 </div>
                 <div>
                   <h4 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Direct</h4>
@@ -100,9 +128,10 @@ const Contact: React.FC = () => {
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-[#009BDB] text-white uppercase text-[10px] tracking-[0.3em] font-black hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-300 rounded-lg shadow-lg shadow-[#009BDB]/20"
+                disabled={isSubmitting}
+                className={`w-full py-4 bg-[#009BDB] text-white uppercase text-[10px] tracking-[0.3em] font-black hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-300 rounded-lg shadow-lg shadow-[#009BDB]/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Solicitar Proposta
+                {isSubmitting ? 'Enviando...' : 'Solicitar Proposta'}
               </button>
             </form>
           </div>
