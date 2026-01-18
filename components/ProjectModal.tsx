@@ -44,13 +44,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
                 <div className="grid md:grid-cols-2">
                     {/* Image Section */}
-                    <div className="relative h-[300px] md:h-auto overflow-hidden group">
+                    <div className="relative h-[300px] md:h-auto overflow-hidden group bg-black/20 flex items-center justify-center">
                         <img
                             src={project.img}
                             alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                            className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#262626] via-transparent to-transparent md:hidden"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#262626] via-transparent to-transparent md:hidden pointer-events-none"></div>
                     </div>
 
                     {/* Details Section */}

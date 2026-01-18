@@ -8,19 +8,22 @@ const projects = [
   {
     title: "Blue Horizon",
     category: "Architecture & Design",
-    img: "https://images.unsplash.com/photo-1481026469463-66327c86e544?auto=format&fit=crop&q=80&w=2070",
+    img: "./blue-horizon.png",
+    link: "https://blue-horizon-ten.vercel.app/",
     description: "Plataforma digital para um escritório de arquitetura de luxo, focada em visualização imersiva e minimalismo sofisticado."
   },
   {
     title: "Skyline Assets",
     category: "Corporate Finance",
     img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2070",
+    link: "#",
     description: "Dashboard exclusivo para gestão de ativos de alto patrimônio, unindo segurança bancária com estética de alto nível."
   },
   {
     title: "Urban Pure",
     category: "Luxury Tech",
     img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2069",
+    link: "#",
     description: "Ecommerce de dispositivos inteligentes premium, priorizando a experiência do usuário e a fluidez de navegação."
   }
 ];
@@ -51,7 +54,7 @@ const Portfolio: React.FC = () => {
                 <img
                   src={p.img}
                   alt={p.title}
-                  className="w-full aspect-[4/5] sm:aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                  className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-[#009BDB]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <span className="px-5 py-2.5 bg-white text-[#262626] text-[9px] md:text-[10px] font-bold uppercase tracking-widest shadow-xl rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-transform">Ver Projeto</span>

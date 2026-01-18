@@ -9,74 +9,86 @@ const allProjects = [
     {
         title: "Blue Horizon",
         category: "Architecture & Design",
-        img: "https://images.unsplash.com/photo-1481026469463-66327c86e544?auto=format&fit=crop&q=80&w=2070",
+        img: "./blue-horizon.png",
+        link: "https://blue-horizon-ten.vercel.app/",
         description: "Plataforma digital para um escritório de arquitetura de luxo, focada em visualização imersiva e minimalismo sofisticado."
-    },
-    {
-        title: "Skyline Assets",
-        category: "Corporate Finance",
-        img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2070",
-        description: "Dashboard exclusivo para gestão de ativos de alto patrimônio, unindo segurança bancária com estética de alto nível."
-    },
-    {
-        title: "Urban Pure",
-        category: "Luxury Tech",
-        img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2069",
-        description: "Ecommerce de dispositivos inteligentes premium, priorizando a experiência do usuário e a fluidez de navegação."
-    },
-    {
-        title: "Oasis Real Estate",
-        category: "Hospitality",
-        img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=2070",
-        description: "Um portal de reservas para resorts de luxo, focado em converter visitantes através de elegância visual e processos simplificados."
-    },
-    {
-        title: "Vanguard Logistics",
-        category: "Industrial Solutions",
-        img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2070",
-        description: "Modernização da presença digital de uma gigante da logística, trazendo clareza e tecnologia para operações complexas."
     },
     {
         title: "Pure Elegance",
         category: "Fashion & Beauty",
-        img: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=2070",
-        description: "Brandbook digital para uma marca de moda boutique, utilizando tipografia clássica e layouts assimétricos modernos."
+        img: "./pure-elegance.png",
+        link: "https://pure-elegance.vercel.app/",
+        description: "Uma casa de moda boutique dedicada à precisão arquitetônica da silhueta e à alma poética de quem a veste."
     },
     {
-        title: "Vertex Consulting",
-        category: "Corporate Strategy",
-        img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070",
+        title: "EcoFlow",
+        category: "Clean Energy",
+        img: "./ecoflow.png",
+        link: "https://ecoflow-psi.vercel.app/",
+        description: "A EcoFlow oferece soluções completas em energia solar para sua residência ou empresa. Reduza sua conta de luz em até 95% e contribua para um planeta mais sustentável."
+    },
+    {
+        title: "EcoConsult",
+        category: "Ecology Consultancy",
+        img: "./ecoconsult.png",
+        link: "https://ecoconsult.vercel.app/",
+        description: "Ajudamos empresas a navegarem pelas complexidades regulatórias e a implementarem soluções ecológicas que impulsionam o crescimento e a preservação do planeta."
+    },
+    {
+        title: "Gourmet Carioca",
+        category: "Restaurant",
+        img: "./gourmet-carioca.png",
+        link: "https://gourmet-carioca-rj.vercel.app/",
+        description: "Resgatamos a essência da culinária de bairro. Ingredientes frescos, porções generosas e o acolhimento que você merece."
+    },
+    {
+        title: "Hype Suplementos",
+        category: "Supplements",
+        img: "./hype-suplementos.png",
+        link: "https://hype-suplementos.vercel.app/",
+        description: "Suplementação de elite desenvolvida para atletas que não aceitam o comum. Pureza absoluta e tecnologia suíça em cada dose."
+    },
+    {
+        title: "Mar Vermelho",
+        category: "Religious",
+        img: "./mar-vermelho.png",
+        link: "https://mar-vermelho.vercel.app/",
         description: "Presença digital para consultoria de elite, enfatizando autoridade e resultados através de design limpo."
     },
     {
         title: "Lumina Jewels",
         category: "Luxury Retail",
-        img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=2070",
+        img: "./lumina-jewels.png",
+        link: "https://lumina-jewel.vercel.app/",
         description: "Boutique online de joias exclusivas, onde cada clique reflete o brilho e a raridade dos produtos."
     },
     {
-        title: "Titanium Aero",
-        category: "Aerospace",
-        img: "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=2070",
-        description: "Site corporativo para tecnologia aeroespacial, traduzindo precisão técnica em uma interface futurista."
+        title: "Rio Saúde",
+        category: "Clinic",
+        img: "./rio-saude.png",
+        link: "https://rio-saude.vercel.app/",
+        description: "Bem-vindo ao centro médico mais exclusivo do Rio. Onde a precisão científica se encontra com o conforto inigualável de um hotel cinco estrelas."
     },
     {
-        title: "Aether Wellness",
-        category: "Healthcare & Spa",
-        img: "https://images.unsplash.com/photo-1540555700478-4be289a5090a?auto=format&fit=crop&q=80&w=2070",
-        description: "Portal de bem-estar de alto padrão, focado em serenidade visual e facilidade de agendamento."
+        title: "Med Trab",
+        category: "Healthcare",
+        img: "./med-trab.png",
+        link: "https://med-trab.vercel.app/",
+        description: "Garantimos a conformidade legal da sua empresa e o bem-estar dos seus colaboradores através de medicina e segurança do trabalho de excelência."
     },
     {
-        title: "Nordic Homes",
-        category: "Real Estate",
-        img: "https://images.unsplash.com/photo-1512918766671-ad6507962077?auto=format&fit=crop&q=80&w=2070",
-        description: "Catálogo imobiliário minimalista para propriedades escandinavas de alto valor."
+        title: "Mãos Divinas",
+        category: "manicure",
+        img: "./maos-divinas.png",
+        link: "https://maos-divinas.vercel.app/",
+        description: "Onde a arte encontra a exclusividade para realçar a beleza única de cada mulher."
     },
     {
-        title: "Nebula Systems",
-        category: "Software Engineering",
-        img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070",
-        description: "Hub tecnológico para soluções em nuvem, destacando escalabilidade e infraestrutura robusta."
+        title: "Silva Studios",
+        category: "stattionery store",
+        img: "./silva-studio.png",
+        link: "https://silva-studio.vercel.app/",
+        description: "Silva Studio: onde a sofisticação encontra a experimentação. Papelaria de vanguarda para quem redefine o amanhã."
     }
 ];
 
@@ -128,7 +140,7 @@ const AllProjects: React.FC = () => {
                                     <img
                                         src={p.img}
                                         alt={p.title}
-                                        className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                                        className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
                                     />
                                     <div className="absolute inset-0 bg-[#262626]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                         <span className="px-6 py-3 bg-[#009BDB] text-white text-[10px] font-black uppercase tracking-widest shadow-2xl rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-transform">Ver Projeto</span>
