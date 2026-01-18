@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
                   <div className="w-2 h-2 bg-[#009BDB] rounded-sm"></div>
                 </div>
                 <div>
-                  <h4 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Sede</h4>
+                  <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Sede</h3>
                   <p className="text-white/80 text-sm">Av. Paulista, 1000 - São Paulo, BR</p>
                 </div>
               </div>
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
                   <div className="w-2 h-2 bg-[#009BDB] rounded-sm"></div>
                 </div>
                 <div>
-                  <h4 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Direct</h4>
+                  <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest mb-1 font-bold">Direct</h3>
                   <p className="text-white/80 text-sm">contato@alriontech.com</p>
                 </div>
               </div>

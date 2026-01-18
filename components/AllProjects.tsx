@@ -140,6 +140,9 @@ const AllProjects: React.FC = () => {
                                     <img
                                         src={p.img}
                                         alt={p.title}
+                                        width={600}
+                                        height={400}
+                                        loading="lazy"
                                         className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
                                     />
                                     <div className="absolute inset-0 bg-[#262626]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">

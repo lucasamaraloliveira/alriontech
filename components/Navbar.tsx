@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
         <button
           className="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Menu"
+          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -111,6 +111,7 @@ const Navbar: React.FC = () => {
         <button
           className="absolute top-8 right-8 text-white p-2"
           onClick={() => setIsOpen(false)}
+          aria-label="Fechar menu"
         >
           <X size={32} />
         </button>
