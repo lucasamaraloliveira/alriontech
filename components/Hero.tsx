@@ -15,8 +15,8 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#262626] pt-32 md:pt-40">
       {/* Background elements com animação de flutuação suave */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#009BDB]/15 rounded-full blur-[100px] md:blur-[150px] animate-blob"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#85DEF2]/10 rounded-full blur-[100px] md:blur-[150px] animate-blob animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#009BDB]/15 rounded-full blur-[100px] md:blur-[150px] animate-blob transform-gpu will-change-transform"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#85DEF2]/10 rounded-full blur-[100px] md:blur-[150px] animate-blob animation-delay-4000 transform-gpu will-change-transform"></div>
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="/hero-bg.webp"
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
             height={1080}
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-40 grayscale-[0.5] contrast-125"
+            className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-40 grayscale-[0.5] contrast-125 transform-gpu will-change-transform"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#262626]/20 via-[#262626]/60 to-[#262626] shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]"></div>
         </div>
