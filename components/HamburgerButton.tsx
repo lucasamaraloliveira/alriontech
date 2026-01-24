@@ -13,17 +13,17 @@ const HamburgerButton: React.FC<HamburgerButtonProps> = ({ isOpen, onClick, scro
             onClick={onClick}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
-            <div className="flex flex-col justify-center items-center w-6 gap-[5px]">
+            <div className="relative w-6 h-[20px] transform transition-all duration-500 ease-in-out">
                 <span
-                    className={`block h-[2px] w-full bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] transform origin-center ${isOpen ? 'rotate-45 translate-y-[7px]' : ''
+                    className={`absolute left-0 h-[2px] w-full bg-white rounded-full transition-all duration-300 ease-out transform origin-center ${isOpen ? 'top-[9px] rotate-45' : 'top-0'
                         }`}
                 />
                 <span
-                    className={`block h-[2px] w-full bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${isOpen ? 'opacity-0 x-scale-0' : ''
+                    className={`absolute left-0 top-[9px] h-[2px] w-full bg-white rounded-full transition-all duration-200 ease-out ${isOpen ? 'opacity-0 w-0' : 'opacity-100 w-full'
                         }`}
                 />
                 <span
-                    className={`block h-[2px] w-full bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] transform origin-center ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''
+                    className={`absolute left-0 h-[2px] w-full bg-white rounded-full transition-all duration-300 ease-out transform origin-center ${isOpen ? 'top-[9px] -rotate-45' : 'top-[18px]'
                         }`}
                 />
             </div>
