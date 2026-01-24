@@ -18,18 +18,7 @@ const Hero: React.FC = () => {
         <div className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#009BDB]/15 rounded-full blur-[100px] md:blur-[150px] md:animate-blob transform-gpu will-change-transform"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#85DEF2]/10 rounded-full blur-[100px] md:blur-[150px] md:animate-blob animation-delay-4000 transform-gpu will-change-transform"></div>
         <div className="absolute inset-0 overflow-hidden">
-          <picture>
-            <source media="(max-width: 768px)" srcSet="/hero-mobile.jpg" />
-            <img
-              src="/hero.jpg"
-              alt="Modern Web Development Workspace"
-              width={1920}
-              height={1080}
-              fetchPriority="high"
-              decoding="async"
-              className="w-full h-full object-cover scale-100 md:scale-105 md:animate-slow-zoom opacity-40 md:grayscale-[0.5] md:contrast-125 transform-gpu will-change-transform"
-            />
-          </picture>
+
           <div className="absolute inset-0 bg-gradient-to-b from-[#262626]/20 via-[#262626]/60 to-[#262626] shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]"></div>
         </div>
       </div>
