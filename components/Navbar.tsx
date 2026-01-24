@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
+import MobileMenu from './MobileMenu';
+import HamburgerButton from './HamburgerButton';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +62,7 @@ const Navbar: React.FC = () => {
   const secondaryColor = scrolled ? '#85DEF2' : 'rgba(255,255,255,0.7)';
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 flex justify-center p-4 sm:p-6 pointer-events-none text-left">
+    <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-4 sm:p-6 pointer-events-none text-left">
       <nav
         className={`pointer-events-auto transition-[width,background-color,border-radius,border-color,backdrop-filter] duration-500 ease-in-out px-5 sm:px-8 md:px-10 py-3 flex items-center justify-between gap-4 md:gap-10 shadow-2xl ${scrolled
           ? 'w-full md:w-[95%] lg:w-[85%] max-w-6xl bg-[#262626]/85 backdrop-blur-2xl rounded-2xl border border-white/10'
@@ -105,50 +107,19 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Tablet & Mobile Menu Button */}
-        <button
-          className="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors touch-manipulation"
+        <HamburgerButton
+          isOpen={isOpen}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          scrolled={scrolled}
+        />
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-[#262626] z-[60] lg:hidden transition-[opacity,transform,visibility] duration-300 ease-out flex flex-col items-center justify-center will-change-transform transform-gpu ${isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-10 invisible'
-        }`}>
-        <button
-          className="absolute top-8 right-8 text-white p-2"
-          onClick={() => setIsOpen(false)}
-          aria-label="Fechar menu"
-        >
-          <X size={32} />
-        </button>
-
-        <div className="flex flex-col items-center space-y-8 w-full px-6">
-          <Logo className="h-16 mb-4" colorPrimary="#009BDB" colorSecondary="#85DEF2" />
-
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href, link.type)}
-              className="text-2xl sm:text-3xl font-serif text-white hover:text-[#009BDB] transition-colors tracking-widest text-center"
-            >
-              {link.name}
-            </a>
-          ))}
-          <a
-            href="https://wa.me/5521969630415"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="w-full max-w-xs px-10 py-4 bg-[#009BDB] text-white text-[10px] uppercase tracking-widest font-black rounded-lg mt-4 text-center"
-          >
-            Consultoria Especializada
-          </a>
-        </div>
-      </div>
+      <MobileMenu
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        navLinks={navLinks}
+        onNavigate={handleNavClick}
+      />
     </div>
   );
 };
