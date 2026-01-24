@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#85DEF2]/10 rounded-full blur-[100px] md:blur-[150px] md:animate-blob animation-delay-4000 transform-gpu will-change-transform"></div>
         <div className="absolute inset-0 overflow-hidden">
           <picture>
-            <source media="(max-width: 768px)" srcSet="/hero-mobile.jpg" />
+            <source media="(max-width: 768px)" srcSet="/hero.jpg" />
             <img
               src="/hero.jpg"
               alt="Modern Web Development Workspace"
