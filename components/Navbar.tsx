@@ -26,6 +26,23 @@ const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
+  // Close menu on scroll
+  useEffect(() => {
+    const handleScrollClose = () => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('scroll', handleScrollClose, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollClose);
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
