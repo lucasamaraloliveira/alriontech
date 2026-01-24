@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { X } from 'lucide-react';
-import Logo from './Logo';
+import React from 'react';
 
 interface NavLink {
     name: string;
@@ -17,43 +14,19 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLinks, onNavigate }) => {
-    const [mounted, setMounted] = useState(false);
+    if (!isOpen) return null;
 
-    useEffect(() => {
-        setMounted(true);
-        return () => setMounted(false);
-    }, []);
-
-    // Lock body scroll when menu is open
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isOpen]);
-
-    if (!mounted) return null;
-
-    return ReactDOM.createPortal(
+    return (
         <div
-            className={`fixed inset-0 bg-[#262626] z-[9990] lg:hidden transition-[opacity,transform,visibility] duration-500 cubic-bezier(0.19, 1, 0.22, 1) flex flex-col items-center justify-center will-change-transform transform-gpu ${isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'
-                }`}
+            className="absolute top-full left-0 w-full bg-[#262626]/95 backdrop-blur-xl border-t border-white/10 shadow-2xl lg:hidden flex flex-col p-6 animate-slide-down origin-top pointer-events-auto"
         >
-
-
-            <div className="flex flex-col items-center space-y-8 w-full px-6">
-                <Logo className="h-16 mb-4" colorPrimary="#009BDB" colorSecondary="#85DEF2" />
-
+            <div className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
                     <a
                         key={link.name}
                         href={link.href}
                         onClick={(e) => onNavigate(e, link.href, link.type)}
-                        className="text-2xl sm:text-3xl font-serif text-white hover:text-[#009BDB] transition-colors tracking-widest text-center"
+                        className="text-sm uppercase tracking-[0.2em] font-bold text-white/80 hover:text-[#009BDB] transition-colors py-2 border-b border-white/5 last:border-0"
                     >
                         {link.name}
                     </a>
@@ -63,13 +36,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLinks, onNa
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
-                    className="w-full max-w-xs px-10 py-4 bg-[#009BDB] text-white text-[10px] uppercase tracking-widest font-black rounded-lg mt-4 text-center shadow-lg shadow-[#009BDB]/20"
+                    className="w-full text-center px-6 py-3 bg-[#009BDB] text-white text-[10px] uppercase tracking-widest font-black rounded-lg mt-2 shadow-lg hover:bg-[#85DEF2] hover:text-[#262626] transition-all"
                 >
                     Consultoria Especializada
                 </a>
             </div>
-        </div>,
-        document.body
+        </div>
     );
 };
 

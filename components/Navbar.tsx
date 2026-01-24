@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-4 sm:p-6 pointer-events-none text-left">
       <nav
-        className={`pointer-events-auto transition-[width,background-color,border-radius,border-color,backdrop-filter] duration-500 ease-in-out px-5 sm:px-8 md:px-10 py-3 flex items-center justify-between gap-4 md:gap-10 shadow-2xl ${scrolled
+        className={`relative pointer-events-auto transition-[width,background-color,border-radius,border-color,backdrop-filter] duration-500 ease-in-out px-5 sm:px-8 md:px-10 py-3 flex items-center justify-between gap-4 md:gap-10 shadow-2xl ${scrolled
           ? 'w-full md:w-[95%] lg:w-[85%] max-w-6xl bg-[#262626]/85 backdrop-blur-2xl rounded-2xl border border-white/10'
           : 'w-full max-w-7xl bg-transparent rounded-none border-transparent'
           }`}
@@ -112,14 +112,14 @@ const Navbar: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           scrolled={scrolled}
         />
-      </nav>
 
-      <MobileMenu
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        navLinks={navLinks}
-        onNavigate={handleNavClick}
-      />
+        <MobileMenu
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          navLinks={navLinks}
+          onNavigate={handleNavClick}
+        />
+      </nav>
     </div>
   );
 };
