@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#262626] pt-32 md:pt-40">
+    <section id="home" className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#262626] pt-16 md:pt-24">
       {/* Background Otimizado - Apenas o essencial para o visual luxury */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-25%] left-[-25%] w-[100%] h-[100%] bg-[#009BDB]/10 rounded-full blur-[120px] will-change-transform transform-gpu"
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
 
         {/* Main Heading */}
         <div className="text-center max-w-5xl">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-light leading-[1] mb-10 tracking-tight text-white">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-light leading-[1] mb-20 tracking-tight text-white">
             <span className="block opacity-0 transform translate-y-8 animate-[fadeInUp_0.8s_ease-out_forwards_0.5s]">
               Transformamos visão
             </span>

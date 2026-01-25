@@ -41,9 +41,9 @@ const Navbar: React.FC = () => {
     <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-3 sm:p-4 pointer-events-none">
       <nav
         ref={navRef}
-        className={`relative pointer-events-auto transition-all duration-300 ease-out px-6 sm:px-8 py-2.5 flex items-center justify-between shadow-2xl transform-gpu will-change-transform ${scrolled
-          ? 'w-full md:w-[90%] lg:w-[75%] max-w-5xl bg-[#262626]/80 backdrop-blur-xl rounded-lg border border-white/10'
-          : 'w-full max-w-7xl bg-[#262626]/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none rounded-lg border border-white/5 md:border-transparent shadow-none'
+        className={`relative pointer-events-auto transition-all duration-300 ease-out px-6 sm:px-8 py-2.5 flex items-center justify-between shadow-2xl ${scrolled
+          ? 'w-full md:w-[90%] lg:w-[75%] max-w-5xl bg-[#262626]/90 backdrop-blur-sm rounded-lg border border-white/10'
+          : 'w-full max-w-7xl bg-[#262626]/30 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none rounded-lg border border-white/5 md:border-transparent shadow-none'
           }`}
       >
         <div
