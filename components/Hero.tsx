@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
               Onde a <span className="text-white/80 font-medium">sofisticação</span> encontra <br className="hidden md:block" /> a potência do código puro.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-12 sm:gap-16 pt-4">
+            <div className="flex flex-row items-center gap-10 sm:gap-16 pt-4">
               <a
                 href="#portfolio"
                 className="group flex flex-col items-center gap-3 text-white text-[10px] uppercase tracking-[0.4em] font-black transition-all duration-300"
