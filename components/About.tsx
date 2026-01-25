@@ -16,13 +16,13 @@ const About: React.FC = () => {
           <div className="relative group perspective-1000 opacity-0 animate-[revealUp_1.2s_forwards_0.3s]">
             <div className="relative z-10 overflow-hidden rounded-sm bg-[#262626]">
               <img
-                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=85&w=1200"
-                alt="Visionary Artistry"
-                width={800}
-                height={1000}
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=75&w=800"
+                alt="Visão Alrion Tech"
+                width={728}
+                height={485}
                 className="w-full aspect-[3/4] object-cover opacity-80 transition-transform duration-1000 group-hover:scale-110 will-change-transform transform-gpu"
-                loading="eager"
-                fetchPriority="high"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent opacity-60"></div>
             </div>

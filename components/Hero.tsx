@@ -18,26 +18,26 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,155,219,0.03)_0%,_transparent_70%)]"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center">
+      <div className="relative z-10 container mx-auto px-6 pt-20 flex flex-col items-center">
         {/* Main Content Group */}
         <div className="max-w-5xl w-full flex flex-col items-center text-center">
 
-          <div className="mb-10 overflow-hidden">
+          <div className="mb-6 overflow-hidden">
             <span className="block text-[#009BDB] text-[10px] uppercase tracking-[0.8em] font-black opacity-0 animate-[revealUp_1s_ease-out_forwards]">
               Design Digital de Elite
             </span>
           </div>
 
-          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-serif font-light leading-[1.1] tracking-tighter text-white mb-24">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-serif font-light leading-[1.1] tracking-tighter text-white mb-12">
             <span className="block opacity-0 animate-[revealUp_1.2s_cubic-bezier(0.19,1,0.22,1)_forwards_0.2s]">
-              Legado
+              Transformamos Visão em
             </span>
             <span className="block italic text-[#009BDB] opacity-0 animate-[revealUp_1.2s_cubic-bezier(0.19,1,0.22,1)_forwards_0.4s]">
-              Digital
+              Legado Digital
             </span>
           </h1>
 
-          <div className="space-y-20 flex flex-col items-center opacity-0 animate-[fadeIn_1.5s_ease-out_forwards_0.8s]">
+          <div className="space-y-12 flex flex-col items-center opacity-0 animate-[fadeIn_1.5s_ease-out_forwards_0.8s]">
             <p className="text-white/40 text-[11px] md:text-xs uppercase tracking-[0.4em] font-light max-w-lg leading-loose">
               Onde a <span className="text-white/80 font-medium">sofisticação</span> encontra <br className="hidden md:block" /> a potência do código puro.
             </p>
@@ -60,15 +60,16 @@ const Hero: React.FC = () => {
                 <div className="w-8 h-[1px] bg-white/10 group-hover:w-16 group-hover:bg-white/40 transition-all duration-500"></div>
               </a>
             </div>
+
+            {/* Scroll Indicator - Agora abaixo dos botões */}
+            <div className="pt-4 flex flex-col items-center opacity-0 animate-[fadeIn_1s_forwards_1.5s]">
+              <div className="w-[1px] h-12 bg-white/10 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full bg-[#009BDB] animate-[scrollDash_2.5s_infinite]"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Scroll Indicator - Minimalist Line */}
-        <div className="absolute bottom-6 flex flex-col items-center gap-4 opacity-0 animate-[fadeIn_1s_forwards_1.5s]">
-          <div className="w-[1px] h-12 bg-white/10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full bg-[#009BDB] animate-[scrollDash_2.5s_infinite]"></div>
-          </div>
-        </div>
       </div>
     </section>
   );

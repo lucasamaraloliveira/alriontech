@@ -38,35 +38,24 @@ const LandingPage: React.FC = () => {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.05,
-      rootMargin: "0px 0px -20px 0px"
+      threshold: 0.1,
+      rootMargin: "0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          // No unobserve yet to ensure stability during dev/hot-reload
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    const observeNewElements = () => {
-      document.querySelectorAll('.reveal:not(.active), .reveal-left:not(.active)').forEach(el => {
-        observer.observe(el);
-      });
-    };
+    // Selecionamos apenas os elementos que realmente precisam de animação
+    const elementsToObserve = document.querySelectorAll('.reveal');
+    elementsToObserve.forEach(el => observer.observe(el));
 
-    // MutationObserver to catch elements loaded via Suspense/Lazy
-    const mutationObserver = new MutationObserver(observeNewElements);
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
-
-    observeNewElements();
-
-    return () => {
-      observer.disconnect();
-      mutationObserver.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
