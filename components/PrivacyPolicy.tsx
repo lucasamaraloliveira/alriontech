@@ -7,7 +7,7 @@ const PrivacyPolicy: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 md:px-12 bg-[#262626] text-white/80">
+        <div className="min-h-screen pt-32 pb-20 px-6 md:px-12 bg-[#262626] text-white/95">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-serif text-white mb-12">Política de <span className="italic text-[#009BDB]">Privacidade</span></h1>
 

@@ -45,7 +45,7 @@ const Services: React.FC = () => {
                 {s.icon}
               </div>
               <h3 className="text-lg md:text-xl font-serif mb-4 group-hover:text-[#85DEF2] transition-colors">{s.title}</h3>
-              <p className="text-white/40 text-sm leading-relaxed font-light">
+              <p className="text-white/75 text-sm leading-relaxed font-light">
                 {s.desc}
               </p>
               <div className="mt-8 w-10 h-[2px] bg-[#575759] group-hover:w-full group-hover:bg-[#009BDB] transition-all duration-700 ease-in-out"></div>

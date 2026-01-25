@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
 
   // Cores dinâmicas para a logo e links
   const primaryColor = scrolled ? '#009BDB' : '#FFFFFF';
-  const secondaryColor = scrolled ? '#85DEF2' : 'rgba(255,255,255,0.7)';
+  const secondaryColor = scrolled ? '#85DEF2' : 'rgba(255,255,255,0.9)';
 
   return (
     <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-4 sm:p-6 pointer-events-none text-left">
@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href, link.type)}
-              className={`text-[10px] uppercase tracking-[0.2em] font-black transition-all duration-500 hover:text-[#85DEF2] ${scrolled ? 'text-white/70' : 'text-white'
+              className={`text-[10px] uppercase tracking-[0.2em] font-black transition-all duration-500 hover:text-[#85DEF2] ${scrolled ? 'text-white/95' : 'text-white'
                 }`}
               style={{ color: scrolled ? undefined : 'white' }}
             >

@@ -39,28 +39,28 @@ const Footer: React.FC = () => {
           <a
             href="#about"
             onClick={(e) => handleAnchorClick(e, '#about')}
-            className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
+            className="text-white/85 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
           >
             Sobre Nós
           </a>
           <a
             href="#services"
             onClick={(e) => handleAnchorClick(e, '#services')}
-            className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
+            className="text-white/85 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
           >
             Serviços
           </a>
           <a
             href="#portfolio"
             onClick={(e) => handleAnchorClick(e, '#portfolio')}
-            className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
+            className="text-white/85 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
           >
             Portfólio
           </a>
           <a
             href="#contact"
             onClick={(e) => handleAnchorClick(e, '#contact')}
-            className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
+            className="text-white/85 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors"
           >
             Contato
           </a>
@@ -69,9 +69,9 @@ const Footer: React.FC = () => {
         {/* Legal Links */}
         <div className="flex flex-col items-center md:items-start space-y-4">
           <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest font-black mb-2">Jurídico</h3>
-          <a href="#/privacidade" className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors">Privacidade</a>
-          <a href="#/termos" className="text-white/60 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors">Termos de Uso</a>
-          <p className="text-white/60 text-[8px] uppercase tracking-[0.2em] mt-4 pt-4 border-t border-white/5 w-full text-center md:text-left">
+          <a href="#/privacidade" className="text-white/85 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors">Privacidade</a>
+          <a href="#/termos" className="text-white/85 text-[9px] uppercase tracking-widest hover:text-[#009BDB] transition-colors">Termos de Uso</a>
+          <p className="text-white/85 text-[8px] uppercase tracking-[0.2em] mt-4 pt-4 border-t border-white/5 w-full text-center md:text-left">
             &copy; {new Date().getFullYear()} ALRION TECH
           </p>
         </div>
@@ -80,10 +80,10 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center md:items-start space-y-4">
           <h3 className="text-[#85DEF2] text-[10px] uppercase tracking-widest font-black mb-2">Conecte-se</h3>
           <div className="flex gap-6">
-            <a href="https://www.instagram.com/alriontech/" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold" target="_blank">Instagram</a>
-            <a href="https://www.linkedin.com/company/alrion-tech-inova%C3%A7%C3%B5es-em-tecnologia/?viewAsMember=true" className="text-white/60 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/alriontech/" className="text-white/85 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/alrion-tech-inova%C3%A7%C3%B5es-em-tecnologia/?viewAsMember=true" className="text-white/85 hover:text-[#009BDB] transition-colors uppercase text-[9px] tracking-widest font-bold" target="_blank">LinkedIn</a>
           </div>
-          <p className="text-white/60 text-[9px] uppercase tracking-[0.2em] mt-4">
+          <p className="text-white/85 text-[9px] uppercase tracking-[0.2em] mt-4">
             alriontecnologia@gmail.com
           </p>
         </div>

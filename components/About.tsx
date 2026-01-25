@@ -32,7 +32,7 @@ const About: React.FC = () => {
             Não apenas códigos, mas <br />
             <span className="italic text-[#85DEF2]">Obras de Arte Digitais.</span>
           </h2>
-          <p className="text-white/60 leading-relaxed text-base sm:text-lg font-light max-w-2xl mx-auto lg:mx-0">
+          <p className="text-white/85 leading-relaxed text-base sm:text-lg font-light max-w-2xl mx-auto lg:mx-0">
             A Alrion Tech nasceu da necessidade de elevar o padrão do desenvolvimento web. Em um mundo saturado de templates genéricos, nós oferecemos o bespoke — o desenvolvimento sob medida, onde cada pixel é meticulosamente planejado.
           </p>
 

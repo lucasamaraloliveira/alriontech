@@ -181,7 +181,7 @@ const AllProjects: React.FC = () => {
                                         onClick={() => setCurrentPage(i + 1)}
                                         className={`w-10 h-10 rounded-lg border text-[10px] font-black transition-all ${currentPage === i + 1
                                             ? 'bg-[#009BDB] border-[#009BDB] text-white shadow-lg shadow-[#009BDB]/20'
-                                            : 'border-white/10 text-white/40 hover:border-[#85DEF2] hover:text-[#85DEF2]'
+                                            : 'border-white/20 text-white/70 hover:border-[#85DEF2] hover:text-[#85DEF2]'
                                             }`}
                                     >
                                         {i + 1}

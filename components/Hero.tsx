@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
 
         {/* Scroll indicator - Estilizado */}
         <div className="mt-16 sm:mt-24 flex flex-col items-center gap-3 opacity-100 md:opacity-0 md:animate-fade-in animation-delay-2000">
-          <span className="text-[8px] uppercase tracking-[0.4em] text-white/40 rotate-90 mb-8 animate-pulse">Scroll</span>
+          <span className="text-[8px] uppercase tracking-[0.4em] text-white/70 rotate-90 mb-8 animate-pulse">Scroll</span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-[#009BDB] to-transparent animate-bounce"></div>
         </div>
       </div>

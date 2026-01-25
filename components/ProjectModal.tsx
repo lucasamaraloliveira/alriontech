@@ -61,7 +61,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                         <h2 className="text-3xl md:text-5xl font-serif text-white mb-6 leading-tight">
                             {project.title}
                         </h2>
-                        <p className="text-white/60 font-light leading-relaxed mb-10 text-lg">
+                        <p className="text-white/85 font-light leading-relaxed mb-10 text-lg">
                             {project.description || "Uma solução digital de alta performance, unindo design de luxo com tecnologias de ponta para proporcionar uma experiência de marca inigualável."}
                         </p>
 
