@@ -69,50 +69,6 @@ const Hero: React.FC = () => {
 
 
 
-      <style>{`
-        @keyframes slideUp {
-          from { transform: translateY(100%); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeInUp {
-          from { transform: translateY(40px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes expandWidth {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-        @keyframes slowZoom {
-          from { transform: scale(1); }
-          to { transform: scale(1.1); }
-        }
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-slide-up { animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        .animate-fade-in-up { animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
-        .animate-expand-width { animation: expandWidth 1s ease-out forwards; transform-origin: left; }
-        .animate-slow-zoom { animation: slowZoom 20s linear infinite alternate; }
-        @media (max-width: 768px) {
-          .animate-slow-zoom { animation: none; transform: scale(1.05); }
-        }
-        .animate-blob { animation: blob 7s infinite alternate; }
-        .animation-delay-200 { animation-delay: 0.2s; }
-        .animation-delay-500 { animation-delay: 0.5s; }
-        .animation-delay-1000 { animation-delay: 1s; }
-        .animation-delay-1200 { animation-delay: 1.2s; }
-        .animation-delay-1500 { animation-delay: 1.5s; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
-      `}</style>
     </section >
   );
 };
