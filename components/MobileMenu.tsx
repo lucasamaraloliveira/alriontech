@@ -18,7 +18,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLinks, onNa
 
     return (
         <div
-            className="absolute top-full left-0 w-full bg-[#262626]/98 backdrop-blur-2xl border-t border-white/5 shadow-2xl lg:hidden flex flex-col p-8 animate-slide-down origin-top pointer-events-auto touch-manipulation-fix"
+            className="absolute top-full left-0 w-full bg-[#262626]/98 backdrop-blur-xl border-t border-white/5 shadow-2xl lg:hidden flex flex-col p-8 animate-slide-down origin-top pointer-events-auto touch-manipulation-fix will-change-transform"
         >
             <div className="flex flex-col space-y-4">
                 {navLinks.map((link, idx) => (

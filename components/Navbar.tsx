@@ -145,10 +145,6 @@ const Navbar: React.FC = () => {
         <HamburgerButton
           isOpen={isOpen}
           onClick={() => setIsOpen(!isOpen)}
-          onPointerDown={(e) => {
-            e.preventDefault(); // Evita o disparo duplo com o click em alguns browsers
-            setIsOpen(!isOpen);
-          }}
           scrolled={scrolled}
         />
 
