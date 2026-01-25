@@ -1,23 +1,18 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-// Crítico: Hero e Navbar permanecem estáticos para LCP instantâneo
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
+import Services from './components/Services';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import WhatsAppFAB from './components/WhatsAppFAB';
 
-// Componentes Pesados abaixo da dobra: Lazy Loading real
-const About = lazy(() => import('./components/About'));
-const Services = lazy(() => import('./components/Services'));
-const Portfolio = lazy(() => import('./components/Portfolio'));
-const Contact = lazy(() => import('./components/Contact'));
-const Footer = lazy(() => import('./components/Footer'));
-const ScrollToTop = lazy(() => import('./components/ScrollToTop'));
-const WhatsAppFAB = lazy(() => import('./components/WhatsAppFAB'));
-
-// Non-critical components and secondary routes are lazy loaded
+// Apenas rotas secundárias permanecem lazy
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./components/TermsOfService'));
-
-// Mantemos lazy apenas o que REALMENTE é outra página
 const AllProjects = lazy(() => import('./components/AllProjects'));
 import { SectionSkeleton } from './components/Skeleton';
 
@@ -65,15 +60,13 @@ const LandingPage: React.FC = () => {
     <div className="relative min-h-screen">
       <Navbar />
       <Hero />
-      <Suspense fallback={<SectionSkeleton />}>
-        <div id="about" className="reveal"><About /></div>
-        <div id="services" className="reveal"><Services /></div>
-        <div id="portfolio" className="reveal"><Portfolio /></div>
-        <div id="contact" className="reveal"><Contact /></div>
-        <Footer />
-        <ScrollToTop />
-        <WhatsAppFAB />
-      </Suspense>
+      <div id="about" className="reveal"><About /></div>
+      <div id="services" className="reveal"><Services /></div>
+      <div id="portfolio" className="reveal"><Portfolio /></div>
+      <div id="contact" className="reveal"><Contact /></div>
+      <Footer />
+      <ScrollToTop />
+      <WhatsAppFAB />
     </div>
   );
 };
