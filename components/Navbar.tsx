@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
         ref={navRef}
         className={`relative pointer-events-auto transition-all duration-500 ease-in-out px-6 sm:px-8 py-2.5 flex items-center justify-between shadow-2xl ${scrolled
           ? 'w-full md:w-[90%] lg:w-[75%] max-w-5xl bg-[#262626]/80 backdrop-blur-2xl rounded-lg border border-white/10'
-          : 'w-full max-w-7xl bg-transparent backdrop-blur-none rounded-lg border border-transparent shadow-none'
+          : 'w-full max-w-7xl bg-[#262626]/40 backdrop-blur-lg md:bg-transparent md:backdrop-blur-none rounded-lg border border-white/5 md:border-transparent shadow-none'
           }`}
       >
         {/* Logo Reutilizável com Cores Dinâmicas */}
