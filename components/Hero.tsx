@@ -29,10 +29,10 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-serif font-light leading-[1.1] tracking-tighter text-white mb-12">
-            <span className="block opacity-0 animate-[revealUp_1.2s_cubic-bezier(0.19,1,0.22,1)_forwards_0.2s]">
+            <span className="block animate-[revealUp_0.8s_cubic-bezier(0.19,1,0.22,1)_forwards]">
               Transformamos Visão em
             </span>
-            <span className="block italic text-[#009BDB] opacity-0 animate-[revealUp_1.2s_cubic-bezier(0.19,1,0.22,1)_forwards_0.4s]">
+            <span className="block italic text-[#009BDB] animate-[revealUp_1s_cubic-bezier(0.19,1,0.22,1)_forwards_0.2s]">
               Legado Digital
             </span>
           </h1>

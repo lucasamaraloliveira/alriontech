@@ -28,7 +28,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Geometric Decoration - Low memory cost */}
-            <div className="absolute -top-12 -right-12 w-48 h-48 border border-white/5 rounded-sm p-4 hidden lg:block">
+            <div className="absolute -top-12 -right-12 w-48 h-48 border border-white/5 rounded-sm p-4 hidden lg:block animate-[float_8s_ease-in-out_infinite]">
               <div className="w-full h-full border border-white/10 opacity-20"></div>
             </div>
           </div>
@@ -44,14 +44,18 @@ const About: React.FC = () => {
               Na Alrion Tech, acreditamos que a tecnologia deve ser invisível, deixando apenas a experiência. Criamos interfaces que respiram, onde cada interação é uma nota em uma sinfonia digital perfeitamente afinada.
             </p>
 
-            <div className="grid grid-cols-2 gap-12 pt-12 border-t border-white/5 opacity-0 animate-[fadeIn_1.5s_forwards_1s]">
+            <div className="grid grid-cols-2 gap-12 pt-12 border-t border-white/5">
               {[
                 { label: "Design", val: "Exclusivo" },
                 { label: "Código", val: "Puro" },
                 { label: "Experiência", val: "Fluida" },
                 { label: "Visão", val: "Artística" }
               ].map((item, idx) => (
-                <div key={idx} className="space-y-2">
+                <div
+                  key={idx}
+                  className="space-y-2 opacity-0 [.active_&]:animate-[revealUp_1s_cubic-bezier(0.19,1,0.22,1)_forwards]"
+                  style={{ animationDelay: `${0.8 + (idx * 0.15)}s` }}
+                >
                   <p className="text-[#009BDB] text-[9px] uppercase tracking-[0.4em] font-black">{item.label}</p>
                   <p className="text-white text-xl font-serif italic">{item.val}</p>
                 </div>
