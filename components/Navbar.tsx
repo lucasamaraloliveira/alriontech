@@ -1,6 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import Logo from './Logo';
 import MobileMenu from './MobileMenu';
 import HamburgerButton from './HamburgerButton';
@@ -11,121 +10,60 @@ const Navbar: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
-
-  // Close menu on scroll
-  useEffect(() => {
-    const handleScrollClose = () => {
-      if (isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      window.addEventListener('scroll', handleScrollClose, { passive: true });
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScrollClose);
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 50);
-          ticking = false;
-        });
-        ticking = true;
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrolled]);
 
   const navLinks = [
-    { name: 'Início', href: '#home', type: 'anchor' },
-    { name: 'Sobre', href: '#about', type: 'anchor' },
-    { name: 'Serviços', href: '#services', type: 'anchor' },
-    { name: 'Portfólio', href: '#portfolio', type: 'anchor' },
-    { name: 'Contato', href: '#contact', type: 'anchor' },
+    { name: 'Início', href: '#home' },
+    { name: 'Sobre', href: '#about' },
+    { name: 'Serviços', href: '#services' },
+    { name: 'Portfólio', href: '#portfolio' },
+    { name: 'Contato', href: '#contact' },
   ];
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-    const isHome = window.location.hash === '#/' || window.location.hash === '' || window.location.hash.startsWith('#/?');
-    if (!isHome) {
-      // If not on the home page, redirect to home and then scroll
-      const targetPath = hash === '#home' ? '' : hash.substring(1);
-      window.location.href = window.location.pathname + '#/' + targetPath;
-    } else {
-      // Smooth scroll on the same page
-      e.preventDefault();
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    e.preventDefault();
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsOpen(false); // Close mobile menu after click
+    setIsOpen(false);
   };
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, type: string) => {
-    if (type === 'anchor') {
-      handleAnchorClick(e, href);
-    } else {
-      setIsOpen(false);
-    }
-  };
-
-  // Cores dinâmicas para a logo e links
-  const primaryColor = scrolled ? '#009BDB' : '#FFFFFF';
-  const secondaryColor = scrolled ? '#85DEF2' : 'rgba(255,255,255,0.9)';
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-3 sm:p-4 pointer-events-none text-left">
+    <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-3 sm:p-4 pointer-events-none">
       <nav
         ref={navRef}
-        className={`relative pointer-events-auto transition-all duration-500 ease-in-out px-6 sm:px-8 py-2.5 flex items-center justify-between shadow-2xl ${scrolled
-          ? 'w-full md:w-[90%] lg:w-[75%] max-w-5xl bg-[#262626]/80 backdrop-blur-2xl rounded-lg border border-white/10'
-          : 'w-full max-w-7xl bg-[#262626]/40 backdrop-blur-lg md:bg-transparent md:backdrop-blur-none rounded-lg border border-white/5 md:border-transparent shadow-none'
+        className={`relative pointer-events-auto transition-all duration-300 ease-out px-6 sm:px-8 py-2.5 flex items-center justify-between shadow-2xl transform-gpu will-change-transform ${scrolled
+          ? 'w-full md:w-[90%] lg:w-[75%] max-w-5xl bg-[#262626]/80 backdrop-blur-xl rounded-lg border border-white/10'
+          : 'w-full max-w-7xl bg-[#262626]/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none rounded-lg border border-white/5 md:border-transparent shadow-none'
           }`}
       >
-        {/* Logo Reutilizável com Cores Dinâmicas */}
         <div
-          className="cursor-pointer transition-transform duration-500 hover:scale-105"
-          onClick={(e) => handleAnchorClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, '#home')}
+          className="cursor-pointer transition-transform duration-300 hover:scale-105 transform-gpu"
+          onClick={(e) => handleAnchorClick(e as any, '#home')}
         >
           <Logo
-            className="h-10 sm:h-12 md:h-14"
-            colorPrimary={primaryColor}
-            colorSecondary={secondaryColor}
+            className="h-10 sm:h-12"
+            colorPrimary={scrolled ? '#009BDB' : '#FFFFFF'}
+            colorSecondary={scrolled ? '#85DEF2' : 'rgba(255,255,255,0.9)'}
           />
         </div>
 
-        {/* Desktop Links - Cores Dinâmicas */}
-        <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+        <div className="hidden lg:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href, link.type)}
-              className={`text-[10px] uppercase tracking-[0.2em] font-black transition-all duration-500 hover:text-[#85DEF2] ${scrolled ? 'text-white/95' : 'text-white'
-                }`}
-              style={{ color: scrolled ? undefined : 'white' }}
+              onClick={(e) => handleAnchorClick(e, link.href)}
+              className="text-[10px] uppercase tracking-[0.2em] font-black text-white transition-colors duration-300 hover:text-[#85DEF2]"
             >
               {link.name}
             </a>
@@ -134,14 +72,12 @@ const Navbar: React.FC = () => {
             href="https://wa.me/5521969630415"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="px-6 py-2.5 bg-[#009BDB] text-white hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-500 text-[9px] uppercase tracking-widest font-black rounded-lg shadow-lg shadow-[#009BDB]/20"
+            className="px-6 py-2.5 bg-[#009BDB] text-white hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-300 text-[9px] uppercase tracking-widest font-black rounded-lg shadow-lg shadow-[#009BDB]/20 transform-gpu hover:-translate-y-0.5"
           >
             Solicitar Orçamento
           </a>
         </div>
 
-        {/* Tablet & Mobile Menu Button */}
         <HamburgerButton
           isOpen={isOpen}
           onClick={() => setIsOpen(!isOpen)}
@@ -152,11 +88,11 @@ const Navbar: React.FC = () => {
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           navLinks={navLinks}
-          onNavigate={handleNavClick}
+          onNavigate={(e, href) => handleAnchorClick(e, href)}
         />
       </nav>
     </div>
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
