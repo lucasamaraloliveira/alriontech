@@ -38,7 +38,7 @@ const Services: React.FC = () => {
           {services.map((s, idx) => (
             <div
               key={idx}
-              className="reveal group p-6 md:p-8 border border-white/5 hover:border-[#009BDB]/30 bg-[#262626] transition-all duration-700 hover:-translate-y-4 shadow-2xl"
+              className="reveal group p-6 md:p-8 border border-white/5 hover:border-[#009BDB]/30 bg-[#262626] rounded-lg transition-all duration-700 hover:-translate-y-4 shadow-2xl"
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
               <div className="mb-6 md:mb-8 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">

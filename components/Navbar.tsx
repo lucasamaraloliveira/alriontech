@@ -96,12 +96,12 @@ const Navbar: React.FC = () => {
   const secondaryColor = scrolled ? '#85DEF2' : 'rgba(255,255,255,0.9)';
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-4 sm:p-6 pointer-events-none text-left">
+    <div className="fixed top-0 left-0 w-full z-[10000] flex justify-center p-3 sm:p-4 pointer-events-none text-left">
       <nav
         ref={navRef}
-        className={`relative pointer-events-auto transition-[width,background-color,border-radius,border-color,backdrop-filter] duration-500 ease-in-out px-5 sm:px-8 md:px-10 py-3 flex items-center justify-between gap-4 md:gap-10 shadow-2xl ${scrolled
-          ? 'w-full md:w-[95%] lg:w-[85%] max-w-6xl bg-[#262626]/85 backdrop-blur-2xl rounded-2xl border border-white/10'
-          : 'w-full max-w-7xl bg-[#262626]/20 backdrop-blur-md rounded-xl border border-white/5 shadow-none'
+        className={`relative pointer-events-auto transition-all duration-500 ease-in-out px-6 sm:px-8 py-2.5 flex items-center justify-between shadow-2xl ${scrolled
+          ? 'w-full md:w-[90%] lg:w-[75%] max-w-5xl bg-[#262626]/80 backdrop-blur-2xl rounded-lg border border-white/10'
+          : 'w-full max-w-7xl bg-transparent backdrop-blur-none rounded-lg border border-transparent shadow-none'
           }`}
       >
         {/* Logo Reutilizável com Cores Dinâmicas */}
