@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#262626] pt-16 md:pt-24">
+    <section id="home" className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#262626] pt-28 md:pt-32">
       {/* Background Otimizado - Apenas o essencial para o visual luxury */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-25%] left-[-25%] w-[100%] h-[100%] bg-[#009BDB]/10 rounded-full blur-[120px] will-change-transform transform-gpu"
