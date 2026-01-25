@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 opacity-100 md:opacity-0 md:animate-fade-in animation-delay-1500">
           <a
             href="#portfolio"
-            className="w-full sm:w-auto group btn-shine relative px-8 md:px-10 py-4 md:py-5 bg-[#009BDB] text-white font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-500 rounded-lg shadow-xl shadow-[#009BDB]/20"
+            className="w-full sm:w-auto group btn-shine relative px-8 md:px-10 py-4 md:py-5 bg-[#006DA1] text-white font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#85DEF2] hover:text-[#262626] transition-all duration-500 rounded-lg shadow-xl shadow-[#006DA1]/20"
           >
             Ver Portfólio
             <ArrowDownRight className="inline-block ml-2 group-hover:rotate-45 transition-transform duration-300" size={18} />
