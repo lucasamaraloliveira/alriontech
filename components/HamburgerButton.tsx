@@ -3,14 +3,16 @@ import React from 'react';
 interface HamburgerButtonProps {
     isOpen: boolean;
     onClick: () => void;
+    onPointerDown?: (e: React.PointerEvent) => void;
     scrolled: boolean;
 }
 
-const HamburgerButton: React.FC<HamburgerButtonProps> = ({ isOpen, onClick, scrolled }) => {
+const HamburgerButton: React.FC<HamburgerButtonProps> = ({ isOpen, onClick, onPointerDown, scrolled }) => {
     return (
         <button
             className="lg:hidden relative w-12 h-12 flex justify-center items-center group focus:outline-none pointer-events-auto touch-manipulation-fix"
             onClick={onClick}
+            onPointerDown={onPointerDown}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
             <div className="relative w-6 h-[20px] transform transition-all duration-500 ease-in-out">

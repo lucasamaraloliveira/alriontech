@@ -148,30 +148,33 @@
   }
 
   /* Shine Effect for Buttons */
-  .btn-shine {
-    position: relative;
-    @apply overflow-hidden;
-  }
+  @media (hover: hover) {
+    .btn-shine {
+      position: relative;
+      @apply overflow-hidden;
+    }
 
-  .btn-shine::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(30deg);
-    transition: none;
-  }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(30deg);
+      transition: none;
+    }
 
-  .btn-shine:hover::after {
-    left: 120%;
-    transition: all 0.7s ease-in-out;
+    .btn-shine:hover::after {
+      left: 120%;
+      transition: all 0.7s ease-in-out;
+    }
   }
 
   .touch-manipulation-fix {
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
