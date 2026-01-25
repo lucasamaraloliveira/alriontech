@@ -1,11 +1,7 @@
-
 import React, { useEffect, Suspense, lazy } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import WhatsAppFAB from './components/WhatsAppFAB';
 
 // Components are lazy loaded to improve initial performance
 const About = lazy(() => import('./components/About'));
@@ -13,8 +9,12 @@ const Services = lazy(() => import('./components/Services'));
 const Portfolio = lazy(() => import('./components/Portfolio'));
 const Contact = lazy(() => import('./components/Contact'));
 
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
+// Non-critical components and secondary routes are lazy loaded
+const Footer = lazy(() => import('./components/Footer'));
+const ScrollToTop = lazy(() => import('./components/ScrollToTop'));
+const WhatsAppFAB = lazy(() => import('./components/WhatsAppFAB'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./components/TermsOfService'));
 
 // Mantemos lazy apenas o que REALMENTE é outra página
 const AllProjects = lazy(() => import('./components/AllProjects'));
@@ -79,10 +79,10 @@ const LandingPage: React.FC = () => {
         <div id="services" className="reveal"><Services /></div>
         <div id="portfolio" className="reveal"><Portfolio /></div>
         <div id="contact" className="reveal"><Contact /></div>
+        <Footer />
+        <ScrollToTop />
+        <WhatsAppFAB />
       </Suspense>
-      <Footer />
-      <ScrollToTop />
-      <WhatsAppFAB />
     </div>
   );
 };
