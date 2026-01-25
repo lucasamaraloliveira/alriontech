@@ -14,12 +14,12 @@ const Logo: React.FC<LogoProps> = ({
   return (
     <div className={`flex items-center ${className}`}>
       <img
-        src="/logo.png"
+        src="/logo.svg"
         alt="Alrion Tech Logo"
         width={320}
         height={120}
         style={{ aspectRatio: '320 / 120' }}
-        className="h-full w-auto object-contain brightness-110 contrast-105"
+        className="h-full w-auto object-contain"
       />
     </div>
   );
