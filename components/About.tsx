@@ -3,52 +3,60 @@ import React, { memo } from 'react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 md:py-32 px-6 md:px-12 bg-[#262626] overflow-hidden">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Imagem Otimizada */}
-        <div className="relative order-2 lg:order-1 reveal-left will-change-transform transform-gpu">
-          <div className="absolute -top-10 -left-6 text-[8rem] font-serif text-[#009BDB]/5 leading-none select-none pointer-events-none">A</div>
-          <div className="relative z-10 overflow-hidden rounded-lg group">
-            <img
-              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200"
-              alt="Alrion Tech Vision"
-              width={600}
-              height={750}
-              className="w-full aspect-[4/5] object-cover border-l-4 border-[#009BDB] p-2 bg-[#575759]/10 transition-transform duration-700 group-hover:scale-105 will-change-transform transform-gpu"
-              loading="eager" // Carregamento imediato pois está logo após a primeira dobra
-              fetchPriority="high"
-            />
-          </div>
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-[#85DEF2]/20 hidden sm:block animate-pulse pointer-events-none"></div>
+    <section id="about" className="py-24 md:py-48 px-6 md:px-12 bg-[#1A1A1A] overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        {/* Sub-heading Concept */}
+        <div className="w-full text-center md:text-left mb-24 opacity-0 animate-[revealUp_1s_forwards]">
+          <span className="text-[#009BDB] text-[10px] uppercase tracking-[1em] font-black">Nossa Filosofia</span>
+          <div className="w-full h-[1px] bg-white/5 mt-8 animate-[lineExpand_2s_forwards_0.5s]"></div>
         </div>
 
-        {/* Conteúdo Textual */}
-        <div className="space-y-8 order-1 lg:order-2 text-center lg:text-left reveal will-change-transform transform-gpu">
-          <div className="inline-block border-b-2 border-[#009BDB] pb-2">
-            <span className="text-[#009BDB] text-[10px] uppercase tracking-[0.4em] font-black">Nossa História</span>
+        <div className="grid lg:grid-cols-2 gap-24 lg:gap-32 items-center">
+          {/* Visual Side */}
+          <div className="relative group perspective-1000 opacity-0 animate-[revealUp_1.2s_forwards_0.3s]">
+            <div className="relative z-10 overflow-hidden rounded-sm bg-[#262626]">
+              <img
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=85&w=1200"
+                alt="Visionary Artistry"
+                width={800}
+                height={1000}
+                className="w-full aspect-[3/4] object-cover opacity-80 transition-transform duration-1000 group-hover:scale-110 will-change-transform transform-gpu"
+                loading="eager"
+                fetchPriority="high"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent opacity-60"></div>
+            </div>
+
+            {/* Geometric Decoration - Low memory cost */}
+            <div className="absolute -top-12 -right-12 w-48 h-48 border border-white/5 rounded-sm p-4 hidden lg:block">
+              <div className="w-full h-full border border-white/10 opacity-20"></div>
+            </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light leading-tight text-white">
-            Não apenas códigos, mas <br />
-            <span className="italic text-[#85DEF2]">Obras de Arte Digitais.</span>
-          </h2>
+          {/* Textual Side */}
+          <div className="space-y-12">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light leading-[1.1] text-white opacity-0 animate-[revealUp_1.2s_forwards_0.5s]">
+              Transformamos <br />
+              <span className="italic text-[#009BDB]">Pixel em Legado.</span>
+            </h2>
 
-          <p className="text-white/80 leading-relaxed text-lg font-light max-w-2xl mx-auto lg:mx-0">
-            A Alrion Tech nasceu para elevar o padrão do desenvolvimento web. Em um mundo saturado de templates genéricos, oferecemos o <span className="text-[#85DEF2] font-medium italic">bespoke</span> — o desenvolvimento sob medida, onde cada pixel é planejado para converter e impressionar.
-          </p>
+            <p className="text-white/50 leading-relaxed text-lg md:text-xl font-light max-w-xl opacity-0 animate-[revealUp_1.2s_forwards_0.7s]">
+              Na Alrion Tech, acreditamos que a tecnologia deve ser invisível, deixando apenas a experiência. Criamos interfaces que respiram, onde cada interação é uma nota em uma sinfonia digital perfeitamente afinada.
+            </p>
 
-          <div className="grid grid-cols-2 gap-8 pt-8 max-w-md mx-auto lg:mx-0">
-            {[
-              { num: "01.", label: "Exclusividade" },
-              { num: "02.", label: "Performance" },
-              { num: "03.", label: "Inovação" },
-              { num: "04.", label: "Elegância" }
-            ].map((item, idx) => (
-              <div key={idx} className="group">
-                <p className="text-2xl font-serif text-[#009BDB] transition-colors duration-300 group-hover:text-[#85DEF2]">{item.num}</p>
-                <h3 className="text-white uppercase text-[10px] tracking-[0.2em] mt-2 font-black transition-all duration-300 group-hover:tracking-[0.3em]">{item.label}</h3>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 gap-12 pt-12 border-t border-white/5 opacity-0 animate-[fadeIn_1.5s_forwards_1s]">
+              {[
+                { label: "Design", val: "Exclusivo" },
+                { label: "Código", val: "Puro" },
+                { label: "Experiência", val: "Fluida" },
+                { label: "Visão", val: "Artística" }
+              ].map((item, idx) => (
+                <div key={idx} className="space-y-2">
+                  <p className="text-[#009BDB] text-[9px] uppercase tracking-[0.4em] font-black">{item.label}</p>
+                  <p className="text-white text-xl font-serif italic">{item.val}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

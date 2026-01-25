@@ -6,47 +6,36 @@
 
   --color-brand: #009BDB;
   --color-brand-light: #85DEF2;
-  --color-bg: #262626;
+  --color-bg: #1A1A1A;
+  /* Carvão mais profundo para luxo */
+  --color-surface: #262626;
 
-  /* Animations Otimizadas */
-  --animate-slow-zoom: slowZoom 20s linear infinite alternate;
-  --animate-slide-up: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  --animate-fade-in-up: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  --animate-fade-in: fadeIn 1.5s ease-out forwards;
-  --animate-expand-width: expandWidth 1s ease-out forwards;
-  --animate-slide-down: slideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  /* Animações Luxury 2.0 (Ultra-Performance) */
+  --animate-reveal-up: revealUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  --animate-reveal-down: revealDown 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  --animate-fade-in: fadeIn 1.2s ease-out forwards;
+  --animate-line-expand: lineExpand 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 
-  @keyframes slowZoom {
+  @keyframes revealUp {
     from {
-      transform: scale(1);
-    }
-
-    to {
-      transform: scale(1.1);
-    }
-  }
-
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
+      transform: translate3d(0, 40px, 0);
       opacity: 0;
     }
 
     to {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
       opacity: 1;
     }
   }
 
-  @keyframes fadeInUp {
+  @keyframes revealDown {
     from {
-      transform: translateY(40px);
+      transform: translate3d(0, -20px, 0);
       opacity: 0;
     }
 
     to {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
       opacity: 1;
     }
   }
@@ -61,7 +50,7 @@
     }
   }
 
-  @keyframes expandWidth {
+  @keyframes lineExpand {
     from {
       transform: scaleX(0);
     }
@@ -71,37 +60,13 @@
     }
   }
 
-  @keyframes slideDown {
-    from {
-      transform: translateY(-5px);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes linkFadeIn {
-    from {
-      transform: translateY(5px);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes scrollLine {
+  @keyframes scrollDash {
     0% {
       transform: translateY(-100%);
     }
 
     100% {
-      transform: translateY(200%);
+      transform: translateY(100%);
     }
   }
 }
