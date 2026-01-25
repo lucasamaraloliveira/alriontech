@@ -32,18 +32,67 @@
             rel="stylesheet">
     </noscript>
 
+    <!-- Critical CSS Inline para LCP Otimização -->
+    <style>
+        :root {
+            --color-bg: #262626;
+            --color-brand: #009BDB;
+            --color-brand-light: #85DEF2;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: white;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .critical-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .critical-h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.25rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: white;
+            font-weight: 300;
+        }
+
+        .critical-span {
+            font-style: italic;
+            color: var(--color-brand);
+        }
+
+        .critical-p {
+            color: var(--color-brand-light);
+            font-size: clamp(0.75rem, 2vw, 1.125rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin: 0;
+        }
+    </style>
+
 </head>
 
 <body class="bg-[#262626] text-white selection:bg-[#009BDB] selection:text-white">
     <div id="root">
         <!-- Static Placeholder para LCP Optimization -->
-        <section style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #262626; text-align: center; padding: 24px;">
+        <section class="critical-hero">
             <div>
-                <h1 style="font-family: serif; font-size: 2.25rem; line-height: 1.1; margin-bottom: 2rem; color: white;">
+                <h1 class="critical-h1">
                     Transformamos visão em <br />
-                    <span style="font-style: italic; color: #009BDB;">Legado Digital</span>.
+                    <span class="critical-span">Legado Digital</span>.
                 </h1>
-                <p style="color: #85DEF2; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                <p class="critical-p">
                     Onde a sofisticação encontra a potência do código puro.
                 </p>
             </div>
