@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
           Transformamos visão em <br />
           <span className="italic text-[#009BDB] drop-shadow-[0_0_15px_rgba(0,155,219,0.3)] relative inline-block">
             Legado Digital
-            <span className="absolute bottom-2 left-0 w-full h-[1px] bg-[#009BDB]/30 scale-x-100 md:scale-x-0 md:animate-expand-width animation-delay-1500"></span>
+            <span className="absolute bottom-1 left-0 w-full h-[1px] bg-[#009BDB]/30 scale-x-100 md:scale-x-0 md:animate-expand-width animation-delay-1500"></span>
           </span>.
         </h1>
         <p className="text-[#85DEF2] text-xs sm:text-sm md:text-lg font-light tracking-[0.1em] sm:tracking-[0.2em] uppercase mb-8 italic opacity-100 md:opacity-0 md:animate-fade-in animation-delay-1000">
