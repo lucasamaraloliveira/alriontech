@@ -10,28 +10,19 @@
     <title>Alrion Tech | Desenvolvimento de Luxo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-    <!-- Carregamento Otimizado de Fontes -->
+    <!-- Carregamento Assíncrono de Fontes para evitar bloqueio de renderização -->
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
-        media="all">
+        media="print" onload="this.media='all'">
 
-    <style>
-        /* CSS crítico básico para evitar CLS e acelerar LCP */
-        body {
-            background-color: #262626;
-            color: white;
-            margin: 0;
-        }
-
-        #root {
-            min-height: 100vh;
-        }
-    </style>
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+            rel="stylesheet">
+    </noscript>
 
 </head>
 
