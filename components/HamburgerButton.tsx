@@ -9,7 +9,7 @@ interface HamburgerButtonProps {
 const HamburgerButton: React.FC<HamburgerButtonProps> = ({ isOpen, onClick, scrolled }) => {
     return (
         <button
-            className="lg:hidden relative w-12 h-12 flex justify-center items-center group focus:outline-none pointer-events-auto touch-manipulation-fix"
+            className="lg:hidden relative w-14 h-14 flex justify-center items-center group focus:outline-none pointer-events-auto touch-manipulation-fix active:scale-90 transition-transform duration-200 select-none"
             onClick={onClick}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
