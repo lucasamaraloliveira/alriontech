@@ -169,6 +169,10 @@
     left: 120%;
     transition: all 0.7s ease-in-out;
   }
+
+  .touch-manipulation-fix {
+    touch-action: manipulation;
+  }
 }
 
 /* Smooth scrollbar for luxury feel */
