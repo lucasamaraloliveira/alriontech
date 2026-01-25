@@ -53,6 +53,8 @@ const Portfolio: React.FC = () => {
               <div className="overflow-hidden mb-5 md:mb-6 relative bg-[#575759] rounded-2xl">
                 <img
                   src={p.img}
+                  srcSet={`${p.img.replace('.webp', '-400.webp')} 400w, ${p.img.replace('.webp', '-800.webp')} 800w, ${p.img.replace('.webp', '-1200.webp')} 1200w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   alt={p.title}
                   width={600}
                   height={400}

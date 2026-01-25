@@ -18,6 +18,7 @@ const TermsOfService = lazy(() => import('./components/TermsOfService'));
 
 // Mantemos lazy apenas o que REALMENTE é outra página
 const AllProjects = lazy(() => import('./components/AllProjects'));
+import { SectionSkeleton } from './components/Skeleton';
 
 
 const LandingPage: React.FC = () => {
@@ -74,7 +75,7 @@ const LandingPage: React.FC = () => {
     <div className="relative min-h-screen">
       <Navbar />
       <Hero />
-      <Suspense fallback={<div className="h-96 bg-[#262626]"></div>}>
+      <Suspense fallback={<SectionSkeleton />}>
         <div id="about" className="reveal"><About /></div>
         <div id="services" className="reveal"><Services /></div>
         <div id="portfolio" className="reveal"><Portfolio /></div>

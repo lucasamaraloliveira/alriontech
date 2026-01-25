@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Preload de Assets Críticos para LCP -->
+    <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" fetchpriority="high">
+    <link rel="modulepreload" href="/index.tsx" fetchpriority="high">
+
     <!-- Carregamento Assíncrono de Fontes para evitar bloqueio de renderização -->
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">

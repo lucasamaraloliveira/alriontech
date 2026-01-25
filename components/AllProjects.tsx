@@ -139,11 +139,12 @@ const AllProjects: React.FC = () => {
                                 <div className="overflow-hidden mb-5 md:mb-6 relative bg-[#575759] rounded-2xl">
                                     <img
                                         src={p.img}
+                                        srcSet={`${p.img.replace('.webp', '-400.webp')} 400w, ${p.img.replace('.webp', '-800.webp')} 800w, ${p.img.replace('.webp', '-1200.webp')} 1200w`}
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         alt={p.title}
                                         width={600}
                                         height={400}
                                         loading="lazy"
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
                                     />
                                     <div className="absolute inset-0 bg-[#262626]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
