@@ -7,7 +7,7 @@ const TermsOfService: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 md:px-12 bg-[#262626] text-white/95">
+        <main className="min-h-screen pt-32 pb-20 px-6 md:px-12 bg-[#262626] text-white/95">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-serif text-white mb-12">Termos de <span className="italic text-[#009BDB]">Serviço</span></h1>
 
@@ -37,7 +37,7 @@ const TermsOfService: React.FC = () => {
                     <a href="/" className="text-[#009BDB] text-xs uppercase tracking-widest font-bold hover:text-[#85DEF2] transition-colors border-b border-transparent hover:border-[#85DEF2]">← Voltar para o Início</a>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 

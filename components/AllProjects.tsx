@@ -109,7 +109,7 @@ const AllProjects: React.FC = () => {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen bg-[#262626] pt-24 sm:pt-32 pb-24 px-6 md:px-12">
+            <main className="min-h-screen bg-[#262626] pt-24 sm:pt-32 pb-24 px-6 md:px-12">
                 <div className="max-w-7xl mx-auto">
                     <Link
                         to="/"
@@ -208,7 +208,7 @@ const AllProjects: React.FC = () => {
                     isOpen={!!selectedProject}
                     onClose={() => setSelectedProject(null)}
                 />
-            </div>
+            </main>
             <Footer />
         </>
     );

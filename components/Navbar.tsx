@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-[10000] flex justify-center px-6 transition-all duration-500 pointer-events-none ${scrolled ? 'py-4' : 'py-8'}`}>
+    <header className={`fixed top-0 left-0 w-full z-[10000] flex justify-center px-6 transition-all duration-500 pointer-events-none ${scrolled ? 'py-4' : 'py-8'}`}>
       {/* Scroll Background - Agora no topo para ficar atrás no DOM */}
       <div className={`absolute inset-0 bg-[#1A1A1A]/95 backdrop-blur-md transition-opacity duration-700 pointer-events-none border-b border-white/5 ${scrolled ? 'opacity-100' : 'opacity-0'}`}></div>
 
@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
           onNavigate={(e, href) => handleAnchorClick(e, href)}
         />
       </nav>
-    </div>
+    </header>
   );
 };
 

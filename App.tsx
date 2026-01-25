@@ -59,11 +59,13 @@ const LandingPage: React.FC = () => {
   return (
     <div className="relative min-h-screen">
       <Navbar />
-      <Hero />
-      <div id="about" className="reveal"><About /></div>
-      <div id="services" className="reveal"><Services /></div>
-      <div id="portfolio" className="reveal"><Portfolio /></div>
-      <div id="contact" className="reveal"><Contact /></div>
+      <main>
+        <Hero />
+        <div id="about" className="reveal"><About /></div>
+        <div id="services" className="reveal"><Services /></div>
+        <div id="portfolio" className="reveal"><Portfolio /></div>
+        <div id="contact" className="reveal"><Contact /></div>
+      </main>
       <Footer />
       <ScrollToTop />
       <WhatsAppFAB />
