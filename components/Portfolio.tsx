@@ -15,7 +15,7 @@ const projects = [
   {
     title: "Pure Elegance",
     category: "Fashion & Beauty",
-    img: "./pure-elegance.png",
+    img: "./pure-elegance.webp",
     link: "https://pure-elegance.vercel.app/",
     description: "Uma casa de moda boutique dedicada à precisão arquitetônica da silhueta e à alma poética de quem a veste."
   },

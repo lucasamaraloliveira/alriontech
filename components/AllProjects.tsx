@@ -16,70 +16,70 @@ const allProjects = [
     {
         title: "Pure Elegance",
         category: "Fashion & Beauty",
-        img: "./pure-elegance.png",
+        img: "./pure-elegance.webp",
         link: "https://pure-elegance.vercel.app/",
         description: "Uma casa de moda boutique dedicada à precisão arquitetônica da silhueta e à alma poética de quem a veste."
     },
     {
         title: "EcoFlow",
         category: "Clean Energy",
-        img: "./ecoflow.png",
+        img: "./ecoflow.webp",
         link: "https://ecoflow-psi.vercel.app/",
         description: "A EcoFlow oferece soluções completas em energia solar para sua residência ou empresa. Reduza sua conta de luz em até 95% e contribua para um planeta mais sustentável."
     },
     {
         title: "EcoConsult",
         category: "Ecology Consultancy",
-        img: "./ecoconsult.png",
+        img: "./ecoconsult.webp",
         link: "https://ecoconsult.vercel.app/",
         description: "Ajudamos empresas a navegarem pelas complexidades regulatórias e a implementarem soluções ecológicas que impulsionam o crescimento e a preservação do planeta."
     },
     {
         title: "Gourmet Carioca",
         category: "Restaurant",
-        img: "./gourmet-carioca.png",
+        img: "./gourmet-carioca.webp",
         link: "https://gourmet-carioca-rj.vercel.app/",
         description: "Resgatamos a essência da culinária de bairro. Ingredientes frescos, porções generosas e o acolhimento que você merece."
     },
     {
         title: "Hype Suplementos",
         category: "Supplements",
-        img: "./hype-suplementos.png",
+        img: "./hype-suplementos.webp",
         link: "https://hype-suplementos.vercel.app/",
         description: "Suplementação de elite desenvolvida para atletas que não aceitam o comum. Pureza absoluta e tecnologia suíça em cada dose."
     },
     {
         title: "Mar Vermelho",
         category: "Religious",
-        img: "./mar-vermelho.png",
+        img: "./mar-vermelho.webp",
         link: "https://mar-vermelho.vercel.app/",
         description: "Presença digital para consultoria de elite, enfatizando autoridade e resultados através de design limpo."
     },
     {
         title: "Lumina Jewels",
         category: "Luxury Retail",
-        img: "./lumina-jewels.png",
+        img: "./lumina-jewels.webp",
         link: "https://lumina-jewel.vercel.app/",
         description: "Boutique online de joias exclusivas, onde cada clique reflete o brilho e a raridade dos produtos."
     },
     {
         title: "Rio Saúde",
         category: "Clinic",
-        img: "./rio-saude.png",
+        img: "./rio-saude.webp",
         link: "https://rio-saude.vercel.app/",
         description: "Bem-vindo ao centro médico mais exclusivo do Rio. Onde a precisão científica se encontra com o conforto inigualável de um hotel cinco estrelas."
     },
     {
         title: "Med Trab",
         category: "Healthcare",
-        img: "./med-trab.png",
+        img: "./med-trab.webp",
         link: "https://med-trab.vercel.app/",
         description: "Garantimos a conformidade legal da sua empresa e o bem-estar dos seus colaboradores através de medicina e segurança do trabalho de excelência."
     },
     {
         title: "Mãos Divinas",
         category: "manicure",
-        img: "./maos-divinas.png",
+        img: "./maos-divinas.webp",
         link: "https://maos-divinas.vercel.app/",
         description: "Onde a arte encontra a exclusividade para realçar a beleza única de cada mulher."
     },
