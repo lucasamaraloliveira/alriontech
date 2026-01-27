@@ -18,17 +18,17 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,155,219,0.03)_0%,_transparent_70%)]"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 pt-20 flex flex-col items-center">
+      <div className="relative z-10 container mx-auto px-6 pt-32 md:pt-40 flex flex-col items-center">
         {/* Main Content Group */}
         <div className="max-w-5xl w-full flex flex-col items-center text-center">
 
-          <div className="mb-6 overflow-hidden">
+          <div className="mb-6 md:mb-8 overflow-hidden">
             <span className="block text-[#009BDB] text-[10px] uppercase tracking-[0.8em] font-black opacity-0 animate-[revealUp_1s_ease-out_forwards]">
               Design Digital de Elite
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-serif font-light leading-[1.1] tracking-tighter text-white mb-12">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-serif font-light leading-[1.1] tracking-tighter text-white mb-8 md:mb-12">
             <span className="block animate-[revealUp_0.8s_cubic-bezier(0.19,1,0.22,1)_forwards]">
               Transformamos Visão em
             </span>
